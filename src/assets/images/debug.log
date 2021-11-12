@@ -1,0 +1,61 @@
+[5388:7636:2021-8-29 19:38:47.652] Main Start
+[5388:7636:2021-8-29 19:38:47.652] Command line:"D:\Tài Li?u H?c T?p\studyNodejs\src\public\img\Zoom_cm_ds_mriX3j1hZRp2YYajDuzKpOufv-P8vD5rHRd-P@MntGd-zutV2AfKHX_k76310784fbcdc6fa_.exe"  Instance:0xB90000 Show State:1
+[5388:7636:2021-8-29 19:38:47.708] D:\
+[5388:6556:2021-8-29 19:38:47.724] [process_requst] start, url:https://zoom.us/conf/launch
+[5388:6556:2021-8-29 19:38:49.387] [req_state_read_status_code] zHttpQueryInfo complete, status:200
+[5388:6556:2021-8-29 19:38:49.388] [req_state_read_status_code] zHttpQueryInfo complete, status:200 Error: 0
+[5388:6556:2021-8-29 19:38:49.388] [log_response_content] Content length (1048576 as unknown):1512 , Total read: 1512 , Error No: 0 , Status code: 200
+[5388:6556:2021-8-29 19:38:49.389] [log_response_content] header:
+[5388:6556:2021-8-29 19:38:49.389] HTTP/1.1 200 
+Date: Sun, 29 Aug 2021 12:38:49 GMT
+Content-Type: text/plain;charset=utf-8
+Content-Length: 1512
+Connection: keep-alive
+x-zm-trackingid: v=2.0;clid=us02;rid=WEB_75871606cff67ecc4dc49ca638f64bd1
+X-Content-Type-Options: nosniff
+Content-Security-Policy: upgrade-insecure-requests; default-src https://*.zoom.us https://zoom.us blob: 'self'; img-src https: about: blob: data: 'self'; style-src https: safari-extension: chrome-extension: 'unsafe-inline' data: 'self'; font-src https: safari-extension: chrome-extension: blob: data: 'self'; connect-src * about: blob: data: 'self'; media-src * rtmp: blob: data: 'self'; frame-src https: ms-appx-web: zoommtg: zoomus: wvjbscheme: data: 'self'; object-src 'none'; base-uri 'none';
+X-FRAME-OPTIONS: SAMEORIGIN
+Set-Cookie: zm_aid=""; Domain=.zoom.us; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/; Secure; HttpOnly
+Set-Cookie: zm_haid=""; Domain=.zoom.us; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/; Secure; HttpOnly
+Set-Cookie: zm_tmaid=""; Domain=.zoom.us; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/; Secure; HttpOnly
+Set-Cookie: zm_htmaid=""; Domain=.zoom.us; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/; Secure; HttpOnly
+Set-Cookie: web_zak=""; Domain=.zoom.us; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/; Secure; HttpOnly
+Set-Cookie: cred=5A3FA4274BE3FA2C604D3082C97B715F; Path=/; Secure; HttpOnly
+Set-Cookie: _zm_page_auth=us02_c_mifCs3nrQhChQBOnmPFptw; Domain=.zoom.us; Path=/; Secure; HttpOnly
+p3p: CP="NOI ADM DEV PSAi COM NAV OUR OTR STP IND DEM"
+Set-Cookie: _zm_ssid=us02_c_refuplPySdiZwv-kZzU7yw; Domain=.zoom.us; Path=/; Secure; HttpOnly
+Set-Cookie: _zm_ctaid=aJ5sv7cjQ1ONvWwpcJbNZg.1630240729257.3dceee73029aad52db5ac1a46da2196d; Domain=.zoom.us; Expires=Sun, 29-Aug-2021 14:38:49 GMT; Path=/; Secure; HttpOnly
+Set-Cookie: _zm_chtaid=448; Domain=.zoom.us; Expires=Sun, 29-Aug-2021 14:38:49 GMT; Path=/; Secure; HttpOnly
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-XSS-Protection: 1; mode=block
+Referrer-Policy: strict-origin-when-cross-origin
+
+
+[5388:6556:2021-8-29 19:38:49.390] [process_requst] End for url:https://zoom.us/conf/launch, return code:200, Error:0, Response content size:1512
+[5388:7636:2021-8-29 19:38:49.427] [client_has_installed_app] found path:
+[5388:7636:2021-8-29 19:38:49.427]  ***NULL-POINTER-PLACEHOLDER***
+[5388:7636:2021-8-29 19:38:49.429] [param_query_local_path] path is: C:\Users\vodin\AppData\Roaming\Zoom\ZoomDownload\ dir create response : 1 system error: 1008
+[5388:7636:2021-8-29 19:38:49.429] [downloader_run] State:0
+[5388:10012:2021-8-29 19:38:49.430] [process_requst] start, url:https://zoom.us/client/latest/Installer.exe
+[5388:7636:2021-8-29 19:38:49.431] [client_has_installed_app] found path:
+[5388:7636:2021-8-29 19:38:49.431]  ***NULL-POINTER-PLACEHOLDER***
+[5388:10012:2021-8-29 19:38:51.413] [req_state_read_status_code] zHttpQueryInfo complete, status:200
+[5388:10012:2021-8-29 19:38:51.413] [req_state_read_status_code] zHttpQueryInfo complete, status:200 Error: 0
+[5388:10012:2021-8-29 19:38:52.919] [read_response_file] Status Code:200, content length: 798504, total read: 798504, error code: 0
+[5388:10012:2021-8-29 19:38:52.922] [process_requst] End for url:https://zoom.us/client/latest/Installer.exe, return code:200, Error:0, Response content size:0
+[5388:7636:2021-8-29 19:38:52.984] [handle_download_job_done] Index: 1 Curr index: 1 StatusCode: 200 Error: 0 Response is Empty. 
+[5388:10012:2021-8-29 19:38:53.488] [process_requst] start, url:https://zoom.us/client/latest/Zoom.msi
+[5388:10012:2021-8-29 19:38:54.848] [req_state_read_status_code] zHttpQueryInfo complete, status:200
+[5388:10012:2021-8-29 19:38:54.848] [req_state_read_status_code] zHttpQueryInfo complete, status:200 Error: 0
+[5388:10012:2021-8-29 19:39:10.828] [read_response_file] Status Code:200, content length: 15978214, total read: 15978214, error code: 0
+[5388:10012:2021-8-29 19:39:10.840] [process_requst] End for url:https://zoom.us/client/latest/Zoom.msi, return code:200, Error:0, Response content size:0
+[5388:7636:2021-8-29 19:39:10.854] [handle_download_job_done] Index: 2 Curr index: 2 StatusCode: 200 Error: 0 Response is Empty. 
+[5388:7636:2021-8-29 19:39:10.897] C:\Users\vodin\AppData\Roaming\Zoom\ZoomDownload\Installer.exe
+[5388:7636:2021-8-29 19:39:10.897] ZInstaller --conf.mode=silent --ipc_wnd=197664
+[5388:7636:2021-8-29 19:39:11.197] [launch_silent_install] Installer process created, result:42
+[5388:7636:2021-8-29 19:39:24.375] C:\Users\vodin\AppData\Roaming\Zoom\bin\Zoom.exe
+[5388:7636:2021-8-29 19:39:24.393] client_launch_app: 
+[5388:7636:2021-8-29 19:39:24.394] C:\Users\vodin\AppData\Roaming\Zoom\bin\Zoom.exe
+[5388:7636:2021-8-29 19:39:24.394] "--url=zoommtg://win.launch?h.domain=zoom.us&h.path=join&confid=dXNzPVZpWTFFY0dNdzd4NUQxV296dklscERsVjczQlI5ajJRQ1ZoVGZlZnhURUJ2ZWdqUGVKclR2TFd0RGdSbm5VWnVockYweXppWXRXVms4Ul8zZ0xxZHpwS2EwQS5sZFk0SjdTWmMwWUhLZjhDJnRpZD0yNTQyYzFlMjdjODU0OGM2OGNmMjgwMTA4MGZjY2QwMQ%3D%3D&mcv=0.92.11227.0929&stype=0&zc=0&browser=chrome&action=join&confno=88602783562"
+[5388:7636:2021-8-29 19:39:24.482] [client_launch_app] Zoom app process created, result:42
+[5388:7636:2021-8-29 19:39:24.572] Main End
