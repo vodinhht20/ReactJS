@@ -6,7 +6,7 @@ export default function LayoutWebsite() {
   return (
       <div className="container-fluid">
         <Header />
-        <Outlet />
+          <Outlet />
         <Footer />
       </div>
   );

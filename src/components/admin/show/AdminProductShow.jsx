@@ -1,6 +1,8 @@
-import { Table,Button,Modal,Container } from "react-bootstrap";
+import { Table,Button,Modal,Container,Breadcrumb } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { ToastContainer} from 'react-toastify';
+
 
 const AdminProductShow = ({ products, onRemove }) => {
 
@@ -22,20 +24,17 @@ const AdminProductShow = ({ products, onRemove }) => {
 
     return (
         <Container>
-          <nav aria-label="breadcrumb mb-3">
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item"><Link to={"/admin/dashboard"}>Dashboard</Link></li>
-              <li className="breadcrumb-item active" aria-current="page">Sản Phẩm</li>
-            </ol>
-          </nav>
+          <h2 className="text-center p-3 mb-3">Danh sách sản phẩm</h2>
+          <hr className="bg-secondary"/>
           <Link to={"/admin/product/create"}><Button variant="success" className="mt-2 mb-2">Thêm sản phẩm</Button></Link>
-          <Table striped bordered hover variant="dark" className="rounded">
-            <thead>
+          <Table className="list-products">
+            <thead className="bg-Info text-white">
               <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Avatar</th>
-                <th>CreatedAt</th>
+                <th>Tên sản phẩm</th>
+                <th>Hình ảnh</th>
+                <th>Đơn giá</th>
+                <th>Giảm giá</th>
+                <th>Mô tả</th>
                 <th colSpan="3"></th>
               </tr>
             </thead>
@@ -44,13 +43,14 @@ const AdminProductShow = ({ products, onRemove }) => {
               products.map((item, index) => {
                 return (
                     <tr key={index}>
-                      <td>{item.id}</td>
                       <td>{item.name}</td>
                       <td><img src={item.imager} width="100" /></td>
-                      <td>{item.createdAt}</td>
+                      <td>{item.price}</td>
+                      <td>{item.discount} %</td>
+                      <td>{item.description_short}</td>
                       <td><Link to={"/product/"+item.id}><Button variant="success" className="d-block m-auto">Chi Tiết</Button></Link></td>
-                      <td><Button variant="primary" className="d-block m-auto">Sửa</Button></td>
-                      <td><Button variant="danger" className="d-block m-auto" onClick={() => handleShow(item.id)} >Xóa</Button></td>
+                      <td><Link to={"/admin/product/"+item.id+'/edit'}><Button variant="primary" className="d-block m-auto">Sửa</Button></Link></td>
+                      <td><Button variant="danger" onClick={() => handleShow(item.id)} >Xóa</Button></td>
                   </tr>
                 )
               })
@@ -73,6 +73,7 @@ const AdminProductShow = ({ products, onRemove }) => {
               </Modal.Footer>
             </Modal>
           </>
+          <ToastContainer />
         </Container>
     );
   };

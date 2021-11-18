@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 export default function Home({products}) {
-
   function formatCash(str) {
       return str.split('').reverse().reduce((prev, next, index) => {
           return ((index % 3) ? next : (next + ',')) + prev

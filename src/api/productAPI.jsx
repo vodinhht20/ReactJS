@@ -18,6 +18,6 @@ export const remove = (id) => {
 };
 export const update = (product) => {
   const url = "/products/" + product.id;
-  return instance.post(url, product);
+  return instance.patch(url, product);
 };
 

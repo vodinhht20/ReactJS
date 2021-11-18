@@ -1,4 +1,5 @@
 import '../App.css';
+import {ToastContainer} from "react-toastify"
 export default function Header() {
   return (
     <header>
@@ -106,7 +107,7 @@ export default function Header() {
                     type="text"
                     name=""
                     className="inp__search"
-                    idName=""
+                    id=""
                     placeholder="Tìm Kiếm ..."
                   />
                   <button>
@@ -128,7 +129,7 @@ export default function Header() {
               </div>
               <div className="search">
                 <form action="">
-                  <label for="">Tìm Kiếm: </label>
+                  <label htmlFor="">Tìm Kiếm: </label>
                   <input
                     type="text"
                     className="inp__search"
@@ -202,7 +203,7 @@ export default function Header() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </header>
-
   );
 }
