@@ -3,7 +3,7 @@ import { Link,useParams,useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import { useForm } from "react-hook-form";
 import { useEffect,useState} from "react";
-import { read } from "../../../api/productAPI";
+import { read } from "../../api/productAPI";
 
 
 

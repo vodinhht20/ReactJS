@@ -1,21 +1,14 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link,Outlet } from "react-router-dom";
+import { useState } from "react";
 import "./Admin.css";
 
 export default function AdminHeader() {
-  let sidebar = document.querySelector(".sidebar");
-  let closeBtn = document.querySelector("#btn");
-  let searchBtn = document.querySelector(".bx-search");
-  const menuBtnChange = () => {
-    if (sidebar.classList.contains("open")) {
-      closeBtn.classList.replace("bx-menu", "bx-menu-alt-right"); //replacing the iocns class
-    } else {
-      closeBtn.classList.replace("bx-menu-alt-right", "bx-menu"); //replacing the iocns class
-    }
-  };
+  const [acvtiveNav, setActiveNav] = useState(false);
+  const newClass = acvtiveNav ? "sidebar open" : "sidebar";
   return (
     <div>
-      <div className="sidebar" >
+      <div className={newClass} >
         <div className="logo-details">
           <div className="logo_name">
             <img
@@ -24,24 +17,11 @@ export default function AdminHeader() {
               alt=""
             />
           </div>
-          <i
-            className="bx bx-menu"
-            id="btn"
-            onClick={() => {
-              sidebar.classList.toggle("open");
-              menuBtnChange();
-            }}
-          ></i>
+          <i className="bx bx-menu" id="btn" onClick={() =>  setActiveNav(!acvtiveNav)}></i>
         </div>
         <ul className="nav-list">
           <li>
-            <i
-              className="bx bx-search"
-              onClick={() => {
-                sidebar.classList.toggle("open");
-                menuBtnChange();
-              }}
-            ></i>
+            <i className="bx bx-search"></i>
             <input type="text" placeholder="Search..." />
             <span className="tooltip">Search</span>
           </li>
@@ -82,7 +62,7 @@ export default function AdminHeader() {
           </li>
           <li className="profile">
             <div className="profile-details">
-              <img src={require('../assets/images/myavata.jpg').default} alt="profileImg" />
+              <img src={process.env.PUBLIC_URL + '/assets/images/myavata.jpg'} alt="profileImg" />
               <div className="name_job">
                 <div className="name">Võ Định</div>
                 <div className="job">Web Backend</div>

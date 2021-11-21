@@ -1,7 +1,9 @@
-import axios from 'axios';
-const instance = axios.create({
-  baseURL: "http://localhost:4000"
-});
+// import axios from 'axios';
+// const instance = axios.create({
+//   baseURL: "http://localhost:4000"
+// });
+import instance from "./instance";
+
 
 export const signup = (user) => {
   const url = "/signup";

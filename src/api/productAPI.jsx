@@ -4,8 +4,8 @@ export const create = (product) => {
   const url = "/products";
   return instance.post(url, product);
 };
-export const list = () => {
-  const url = "/products";
+export const list = (params="") => {
+  const url = "/products?"+params;
   return instance.get(url);
 };
 export const read = (id) => {

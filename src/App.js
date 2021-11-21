@@ -5,22 +5,23 @@ import { useEffect, useState } from "react";
 import { toast } from 'react-toastify';
 
 
-import AdminProductShow from "./components/admin/show/AdminProductShow";
-import CreateProduct from "./components/admin/create/CreateProduct";
-import Dashboard from "./components/admin/Dashboard";
-import Home from './components/Home';
-import ProductDetail from './components/ProductDetail';
+import AdminProductShow from "./page/admin/AdminProductShow"; 
+import CreateProduct from "./page/admin/CreateProduct"; 
+import Dashboard from "./page/admin/Dashboard";
+import Home from './page/website/Home';
+import ProductDetail from './page/website/ProductDetail';
 import LayoutWebsite from './layout/LayoutWebsite';
 import LayoutAdmin from './layout/LayoutAdmin';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import ShowEditProduct from "./components/admin/update/ShowEditProduct";
-import Error404 from "./components/Error404";
+import Login from './page/website/Login';
+import Signup from './page/website/Signup';
+import ShowEditProduct from "./page/admin/ShowEditProduct";
+import PrivateAdmin from "./page/website/PrivateAdmin";
+import Error404 from "./page/website/Error404";
 
 
 function App() {
   const [products,setProducts] = useState([]);
-
+  
   useEffect(() => {
     list().then((response => setProducts(response.data)))
   },[])
@@ -66,7 +67,7 @@ return (
   <BrowserRouter>
       <Routes>
         <Route path="/" element={<LayoutWebsite />}>
-          <Route index element={<Home products={products}/>} />
+          <Route index element={<Home products={products} />} />
           <Route path="signup" element={<Signup />} />
           <Route path="login" element={<Login />} />
           <Route path="product" element={<div>sản phẩm</div>}/>
@@ -74,7 +75,7 @@ return (
           <Route path="product/:id" element={<ProductDetail />} />
           <Route path="*" element={<Error404 />} />
         </Route>
-        <Route path="admin/*" element={<LayoutAdmin />}>
+        <Route path="admin/*" element={<PrivateAdmin ><LayoutAdmin /></PrivateAdmin>}>
           <Route index element={<Navigate to="dashboard" />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="products" element={<AdminProductShow products={products} onRemove={onHandleRemove} />} />

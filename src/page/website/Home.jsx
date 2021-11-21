@@ -1,14 +1,28 @@
 import { Link } from 'react-router-dom';
+import {useState} from "react";
+// import Slider from "../../components/Slider";
 export default function Home({products}) {
+
+  const [toggleState,setToggleState] = useState(1);
+  const toggleTab = (index) => {
+    setToggleState(index);
+  }
+
+
+
   function formatCash(str) {
+    str = `${str}`;
       return str.split('').reverse().reduce((prev, next, index) => {
           return ((index % 3) ? next : (next + ',')) + prev
       })
   }
+  
   return (
+    
     <main>
     <div className='banner'>
-      <img src={require('../assets/images/slider_1.jpg').default} alt='' />
+      <img src={process.env.PUBLIC_URL + '/assets/images/slider_1.jpg'} alt='' />
+      {/* <Slider /> */}
     </div>
     <div className='content'>
       <div className='box-introduces'>
@@ -29,7 +43,7 @@ export default function Home({products}) {
                   <span>2</span>
                 </div>
                 <div className='department-item-content'>
-                  <span>Thiết bị hiện đại</span>
+                  <span>Chất lượng cao</span>
                 </div>
                 <div className='department-item-decor'></div>
               </div>
@@ -38,7 +52,7 @@ export default function Home({products}) {
                   <span>3</span>
                 </div>
                 <div className='department-item-content'>
-                  <span>Thiết bị hiện đại</span>
+                  <span>Đội ngũ lành nghề</span>
                 </div>
                 <div className='department-item-decor'></div>
               </div>
@@ -47,12 +61,12 @@ export default function Home({products}) {
                   <span>4</span>
                 </div>
                 <div className='department-item-content'>
-                  <span>Thiết bị hiện đại</span>
+                  <span>Chăm sóc chu đáo</span>
                 </div>
                 <div className='department-item-decor'></div>
               </div>
               <div className='bg-department-item'>
-                <img src={require('../assets/images/bg-department.png').default} alt='' />
+                <img src={process.env.PUBLIC_URL + '/assets/images/bg-department.png'} alt='' />
               </div>
             </div>
             <div className='col-md-12 col-lg-6 introduce'>
@@ -94,35 +108,35 @@ export default function Home({products}) {
             <div className='generality-title-decor'></div>
           </div>
           <div className='row services-tab'>
-            <div className='col-md-4 col-lg-2 service-tab-item active'>
-              <img src={require('../assets/images/icon_tab_1.png').default} alt='' />
+            <div className={toggleState === 1 ? "col-md-4 col-lg-2 service-tab-item active" : "col-md-4 col-lg-2 service-tab-item"} onClick={() => toggleTab(1)}>
+              <img src={process.env.PUBLIC_URL + '/assets/images/icon_tab_1.png'} alt='' />
               <span>Tầm soát ung thư</span>
             </div>
-            <div className='col-md-4 col-lg-2 service-tab-item'>
-              <img src={require('../assets/images/icon_tab_2.png').default} alt='' />
+            <div className={toggleState === 2 ? "col-md-4 col-lg-2 service-tab-item active" : "col-md-4 col-lg-2 service-tab-item"} onClick={() => toggleTab(2)}>
+              <img src={process.env.PUBLIC_URL + '/assets/images/icon_tab_2.png'} alt='' />
               <span>Mô học</span>
             </div>
-            <div className='col-md-4 col-lg-2 service-tab-item'>
-              <img src={require('../assets/images/icon_tab_3.png').default} alt='' />
+            <div className={toggleState === 3 ? "col-md-4 col-lg-2 service-tab-item active" : "col-md-4 col-lg-2 service-tab-item"} onClick={() => toggleTab(3)}>
+              <img src={process.env.PUBLIC_URL + '/assets/images/icon_tab_3.png'} alt='' />
               <span>Khám tổng quát</span>
             </div>
-            <div className='col-md-4 col-lg-2 service-tab-item'>
-              <img src={require('../assets/images/icon_tab_4.png').default} alt='' />
+            <div className={toggleState === 4 ? "col-md-4 col-lg-2 service-tab-item active" : "col-md-4 col-lg-2 service-tab-item"} onClick={() => toggleTab(4)}>
+              <img src={process.env.PUBLIC_URL + '/assets/images/icon_tab_4.png'} alt='' />
               <span>Xét nghiệm máu</span>
             </div>
-            <div className='col-md-4 col-lg-2 service-tab-item'>
-              <img src={require('../assets/images/icon_tab_5.png').default} alt='' />
+            <div className={toggleState === 5 ? "col-md-4 col-lg-2 service-tab-item active" : "col-md-4 col-lg-2 service-tab-item"} onClick={() => toggleTab(5)}>
+              <img src={process.env.PUBLIC_URL + '/assets/images/icon_tab_5.png'} alt='' />
               <span>Xét nghiệm di truyền</span>
             </div>
-            <div className='col-md-4 col-lg-2 service-tab-item'>
-              <img src={require('../assets/images/icon_tab_6.png').default} alt='' />
+            <div className={toggleState === 6 ? "col-md-4 col-lg-2 service-tab-item active" : "col-md-4 col-lg-2 service-tab-item"} onClick={() => toggleTab(6)}>
+              <img src={process.env.PUBLIC_URL + '/assets/images/icon_tab_6.png'} alt='' />
               <span>Tế bào học</span>
             </div>
           </div>
           <div className='services-main'>
-            <div className='row service-main-item active'>
+            <div className={toggleState === 1 ? "row service-main-item active" : "row service-main-item"}>
               <div className='col-md-12 col-lg-6'>
-                <img className='covidimg' src={require('../assets/images/img_tab_1.jpg').default} alt='' />
+                <img className='covidimg' src={process.env.PUBLIC_URL + '/assets/images/img_tab_1.jpg'} alt='' />
               </div>
               <div className='col-md-12 col-lg-6 box-service-content'>
                 <div className='content-title'>
@@ -153,9 +167,9 @@ export default function Home({products}) {
                 </div>
               </div>
             </div>
-            <div className='row service-main-item'>
+            <div className={toggleState === 2 ? "row service-main-item active" : "row service-main-item"}>
               <div className='col-md-12 col-lg-6'>
-                <img src={require('../assets/images/img_tab_2.jpg').default} alt='' />
+                <img src={process.env.PUBLIC_URL + '/assets/images/img_tab_2.jpg'} alt='' />
               </div>
               <div className='col-md-12 col-lg-6 box-service-content'>
                 <div className='content-title'>
@@ -183,9 +197,9 @@ export default function Home({products}) {
                 </div>
               </div>
             </div>
-            <div className='row service-main-item'>
+            <div className={toggleState === 3 ? "row service-main-item active" : "row service-main-item"}>
               <div className='col-md-12 col-lg-6'>
-                <img src={require('../assets/images/img_tab_3.jpg').default} alt='' />
+                <img src={process.env.PUBLIC_URL + '/assets/images/img_tab_3.jpg'} alt='' />
               </div>
               <div className='col-md-12 col-lg-6 box-service-content'>
                 <div className='content-title'>
@@ -217,9 +231,9 @@ export default function Home({products}) {
                 </div>
               </div>
             </div>
-            <div className='row service-main-item'>
+            <div className={toggleState === 4 ? "row service-main-item active" : "row service-main-item"}>
               <div className='col-md-12 col-lg-6'>
-                <img src={require('../assets/images/img_tab_4.jpg').default} alt='' />
+                <img src={process.env.PUBLIC_URL + '/assets/images/img_tab_4.jpg'} alt='' />
               </div>
               <div className='col-md-12 col-lg-6 box-service-content'>
                 <div className='content-title'>
@@ -252,9 +266,9 @@ export default function Home({products}) {
                 </div>
               </div>
             </div>
-            <div className='row service-main-item'>
+            <div className={toggleState === 5 ? "row service-main-item active" : "row service-main-item"}>
               <div className='col-md-12 col-lg-6'>
-                <img src={require('../assets/images/img_tab_5.jpg').default} alt='' />
+                <img src={process.env.PUBLIC_URL + '/assets/images/img_tab_5.jpg'} alt='' />
               </div>
               <div className='col-md-12 col-lg-6 box-service-content'>
                 <div className='content-title'>
@@ -283,9 +297,9 @@ export default function Home({products}) {
                 </div>
               </div>
             </div>
-            <div className='row service-main-item'>
+            <div className={toggleState === 6 ? "row service-main-item active" : "row service-main-item"}>
               <div className='col-md-12 col-lg-6'>
-                <img src={require('../assets/images/img_tab_6.jpg').default} alt='' />
+                <img src={process.env.PUBLIC_URL + '/assets/images/img_tab_6.jpg'} alt='' />
               </div>
               <div className='col-md-12 col-lg-6 box-service-content'>
                 <div className='content-title'>
@@ -336,46 +350,44 @@ export default function Home({products}) {
           </div>
           <div className='box-product-showroom row'>
             {
-              products.map((data) => {
+              products.map((data,index) => {
                 return (
-                  <div className="col-xs-12 col-sm-6 col-md-4">
-                    <article className="card-wrapper">
-                      <div className="image-holder">
-                        <Link to={"/product/"+data.id} className="image-holder__link"></Link>
-                        <div className="image-liquid image-holder--original" style={{backgroundImage: `url(${data.imager})`,}}>
-                        </div>
-                        <div className="bnt-add-cart">
-                          <i class="fas fa-cart-plus"></i>
-                        </div>
-                      </div>
-                      <div className="product-description">
-                        <h1 className="product-description__title">
-                        <Link to={"/product/"+data.id}>{data.name}</Link>
-                        </h1>
-                        <div className="row">
-                          <div className="col-xs-12 col-sm-6 product-description__price">
-                          {formatCash(`${data.price}`)} đ
+                  <div className="product-item col-lg-3 col-md-2" key={index}>
+                      <div className="product-image">
+                          <Link to={"/product/"+data.id}>
+                              <img className="img-primary" src={data.imager}/>
+                          </Link>
+                          <div className="icon-on-image-product">
+                            <Link to={"/product/"+data.id}>
+                              <img className="icon-gif-cart" src={process.env.PUBLIC_URL + '/assets/images/addToCart3.gif'} alt="" />
+                            </Link>
                           </div>
-                          <div className="col-xs-12 col-sm-6 product-description__category secondary-text">
-                          {formatCash(`${data.price}`)} đ
-                          </div>
-                        </div>
-                        <hr />
-                        <div className="description-short-wrapper">
-                        {data.description_short}
-                        </div>
                       </div>
-                    </article>
-                  </div>
-                );
+                      <div className="product-information">
+                        <Link to={"/product/"+data.id}>
+                            <p>{data.name}</p>
+                            <div className="box-price">
+                                <span className="price-primary">{formatCash(data.price-(data.price*data.discount/100))} đ</span>
+                                <span className="price-sub">{formatCash(data.price)} đ</span>
+                            </div>
+                        </Link>
+                      </div>
+                      <span className="product-sale">-{formatCash(data.discount)} %</span>
+                  </div>);
               })
             }
-
             
           </div>
+          {/* <nav aria-label="Page navigation example">
+            <ul className="pagination justify-content-center">
+              <li className="page-item disabled"><a className="page-link" tabindex="-1">Trước</a></li>
+              <li className="page-item"><a className="page-link" >Tiếp</a></li>
+            </ul>
+          </nav> */}
         </div>
       </div>
     </div>
   </main>
   );
 }
+

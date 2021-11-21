@@ -1,14 +1,19 @@
-import "../App.css";
-import { useForm } from "react-hook-form";
+import "../../App.css";
+import { authenticate } from "../../authenticate";
 import { toast } from 'react-toastify';
-import { signin, signup } from "../api/authAPI";
+import { useForm } from "react-hook-form";
+import { signin, signup } from "../../api/authAPI";
+import { useState } from "react";
 import { Link,useNavigate } from "react-router-dom";
+import LoginGoogle from "../../firebase/LoginGoogle";
+import LoginFacebook from "../../firebase/LoginFacebook";
 
 export default function Signup() {
     const {register, handleSubmit, formState: { errors}} = useForm();
     let navigate = useNavigate();
     const onSubmitSignin = (data) => {
-        signup(data)
+        const dataNew = {...data,role: 0}
+        signup(dataNew)
             .then(response => {
                 toast.success("Đăng ký thành công vui lòng đăng nhập !",{
                     autoClose: 2000,
@@ -19,8 +24,28 @@ export default function Signup() {
                 toast.error("Tạo tài khoản thất bại vui lòng thử lại !");
             });
     }
-    const siginGoogle = () => {
-        alert("ok");
+
+
+    const [displayBox,setDisplayBox] = useState("none");
+    // login google
+    const loginGoogle = () => {
+        LoginGoogle().then((response => response.user))
+        .then((user) =>authenticate({...user,role: 0}))
+        .then(() => {
+            setDisplayBox("flex");
+            setTimeout(()=>{
+                toast.success("Chào mừng bạn đến Ego Medical Center !",{
+                    autoClose: 3000
+                });
+                navigate("/", { replace: true });
+                setDisplayBox("none");
+            },5000)
+        });
+    }
+    //login loginFacebook
+
+    const loginFacebook = () => {
+        LoginFacebook();
     }
     return (
         <main className="account-page">
@@ -52,13 +77,18 @@ export default function Signup() {
                     <div id="notify"></div>
                 </div>
                 <div className="line-break mt-4">
-                    <span>hoặc đăng ký bằng</span>
+                    <span>hoặc đăng nhập bằng</span>
                 </div>
-
                 <div className="login-social-network mt-5 mb-5">
-                    <a onClick={() => siginGoogle()} className="login-facebook"><img src={require('../assets/images/fb-btn.svg').default} alt="" /></a>
-                    <a href="" className="login-google"><img src={require('../assets/images/gp-btn.svg').default} alt="" /></a>
+                    <a onClick={() => loginFacebook()} className="login-facebook"><img src={process.env.PUBLIC_URL + '/assets/images/fb-btn.svg'} alt="" /></a>
+                    <a  onClick={() => loginGoogle()} className="login-google"><img src={process.env.PUBLIC_URL + '/assets/images/gp-btn.svg'} alt="" /></a>
                 </div>
+            </div>
+        </div>
+        <div className="box_overlay_load" style={{display: displayBox}}>
+            <div className="iconload">
+                <img src={process.env.PUBLIC_URL + '/assets/images/icon_load001.gif'} alt="" />
+                <p>Vui lòng chờ . . .</p>
             </div>
         </div>
     </main>

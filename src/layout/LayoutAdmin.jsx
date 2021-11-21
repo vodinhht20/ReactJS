@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AdminHeader from "../partials/AdminHeader";
+import AdminHeader from "../components/AdminHeader";
 
 export default function LayoutAdmin() {
   return (

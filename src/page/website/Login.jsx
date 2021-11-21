@@ -1,9 +1,13 @@
-import "../App.css";
+import "../../App.css";
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
-import { authenticate } from "../authenticate";
-import { signin } from "../api/authAPI";
+import { authenticate } from "../../authenticate";
+import { signin } from "../../api/authAPI";
 import { Link,useNavigate } from "react-router-dom";
+import { useState } from "react";
+import LoginGoogle from "../../firebase/LoginGoogle";
+import LoginFacebook from "../../firebase/LoginFacebook";
+import LoginGithub from "../../firebase/LoginGithub";
 
 export default function Login() {
     const {register, handleSubmit, formState: { errors}} = useForm();
@@ -24,6 +28,45 @@ export default function Login() {
             .catch( error => {
                 toast.error("Vui lòng kiểm tra email hoặc password !");
             });
+    }
+
+
+    // login google
+    const [displayBox,setDisplayBox] = useState("none");
+    const loginGoogle = () => {
+        LoginGoogle()
+            .then((response => response.user))
+            .then((user) =>authenticate({...user,role: 0}))
+            .then(() => {
+                setDisplayBox("flex");
+                setTimeout(()=>{
+                    toast.success("Chào mừng bạn đến Ego Medical Center !",{
+                        autoClose: 3000
+                    });
+                    navigate("/", { replace: true });
+                    setDisplayBox("none");
+                },5000);
+            });
+    }
+
+    // login facebook
+    const loginFacebook = () => {
+        LoginFacebook();
+    }
+    const loginGithub = () => {
+        LoginGithub()
+        .then((response => response.user))
+        .then((user) =>authenticate({...user,role: 0}))
+        .then(() => {
+            setDisplayBox("flex");
+            setTimeout(()=>{
+                toast.success("Chào mừng bạn đến Ego Medical Center !",{
+                    autoClose: 3000
+                });
+                navigate("/", { replace: true });
+                setDisplayBox("none");
+            },5000);
+        });
     }
     return (
         <main className="account-page">
@@ -59,9 +102,16 @@ export default function Login() {
                 </div>
 
                 <div className="login-social-network mt-5 mb-5">
-                    <a href="" className="login-facebook"><img src={require('../assets/images/fb-btn.svg').default} alt="" /></a>
-                    <a href="" className="login-google"><img src={require('../assets/images/gp-btn.svg').default} alt="" /></a>
+                    <a className="login-facebook" onClick={() => loginFacebook()}><img src={process.env.PUBLIC_URL + '/assets/images/fb-btn.svg'} alt="" /></a>
+                    <a className="login-google" onClick={() =>loginGoogle() }><img src={process.env.PUBLIC_URL + '/assets/images/gp-btn.svg'} alt="" /></a>
+                    <a className="login-google" onClick={() =>loginGithub() }><img src={process.env.PUBLIC_URL + '/assets/images/github-btn-svg.svg'} alt="" /></a>
                 </div>
+            </div>
+        </div>
+        <div className="box_overlay_load" style={{display: displayBox}}>
+            <div className="iconload">
+                <img src={process.env.PUBLIC_URL + '/assets/images/icon_load001.gif'} alt="" />
+                <p>Vui lòng chờ . . .</p>
             </div>
         </div>
     </main>

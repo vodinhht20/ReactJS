@@ -1,11 +1,16 @@
 import '../App.css';
+import { Link,useNavigate } from "react-router-dom";
+import { isAuthenticate } from "../authenticate";
+import { useEffect, useState } from "react";
+
+
 import {ToastContainer} from "react-toastify"
 export default function Header() {
   return (
     <header>
       <div className="header__top">
         <div className="container">
-          <div className="row">
+          <div className="row align-items-center">
             <div className="col-lg-9 time_contact">
               <div className="">
                 <p>
@@ -24,7 +29,15 @@ export default function Header() {
             </div>
             <div className="col-md-12 col-lg-3 login_contact">
               <div className="login">
-                <a href="">Đăng Nhập</a>/<a href="">Đăng Ký</a>
+                {
+                  isAuthenticate ? <div className="">
+                    <img src={isAuthenticate().photoURL} alt="" className="myAvatar"/>
+                    { isAuthenticate().displayName }
+                    </div>
+                    : <div className="">
+                      <Link to={"/login"}>Đăng Nhập</Link>/ <Link to={"/signup"}>Đăng Ký</Link>
+                    </div>
+                }
               </div>
             </div>
           </div>
@@ -37,15 +50,15 @@ export default function Header() {
               <i className="fas fa-bars"></i>
             </div>
             <div className="col-sm-8 col-md-8 col-lg-2 logo">
-              <img src={require('../assets/images/logo.png').default} alt="logo" />
+              <img src={process.env.PUBLIC_URL + '/assets/images/logo.png'} alt="logo" />
             </div>
             <div className="col-lg-7 navbars_pc">
               <ul className="item-big">
                 <li className="nav-item">
-                  <a href="/">Trang Chủ</a>
+                  <Link to={"/"}>Trang Chủ</Link>
                 </li>
                 <li className="nav-item">
-                  <a href="/intro">Giới Thiệu</a>
+                <Link to={"/"}>Giới Thiệu</Link>
                 </li>
                 <li className="nav-item">
                   <a href="">
