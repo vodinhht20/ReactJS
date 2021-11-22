@@ -1,21 +1,27 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link,Outlet } from "react-router-dom";
+import { Link,Outlet,useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./Admin.css";
 
-export default function AdminHeader() {
-  const [acvtiveNav, setActiveNav] = useState(false);
+export default function AdminHeader({auth, setAuth}) {
+  const [acvtiveNav, setActiveNav] = useState(true);
   const newClass = acvtiveNav ? "sidebar open" : "sidebar";
+  let navigate = useNavigate();
+
+  function logOut() {
+    navigate("/login", { replace: true });
+    setAuth(false);
+  }
   return (
     <div>
       <div className={newClass} >
         <div className="logo-details">
           <div className="logo_name">
-            <img
-              src="https://ap.poly.edu.vn/images/logo.png"
+            <Link to={"/"}><img
+              src={process.env.PUBLIC_URL + '/assets/images/logo.png'}
               width="150"
               alt=""
-            />
+            /></Link>
           </div>
           <i className="bx bx-menu" id="btn" onClick={() =>  setActiveNav(!acvtiveNav)}></i>
         </div>
@@ -34,7 +40,7 @@ export default function AdminHeader() {
           </li>
           <li>
             <Link to={"/admin/products"} >
-              <i class='bx bxs-box'></i>
+              <i className='bx bxs-box'></i>
               <span className="links_name">Sản Phẩm</span>
             </Link>
             <span className="tooltip">Sản Phẩm</span>
@@ -62,13 +68,13 @@ export default function AdminHeader() {
           </li>
           <li className="profile">
             <div className="profile-details">
-              <img src={process.env.PUBLIC_URL + '/assets/images/myavata.jpg'} alt="profileImg" />
+              <img src={auth.photoURL} alt="profileImg" />
               <div className="name_job">
-                <div className="name">Võ Định</div>
+                <div className="name">{auth.displayName}</div>
                 <div className="job">Web Backend</div>
               </div>
             </div>
-            <i className="bx bx-log-out" id="log_out"></i>
+            <i className="bx bx-log-out" id="log_out" onClick={() => logOut()}></i>
           </li>
         </ul>
       </div>

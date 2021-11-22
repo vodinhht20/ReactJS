@@ -6,13 +6,13 @@ import { signin, signup } from "../../api/authAPI";
 import { useState } from "react";
 import { Link,useNavigate } from "react-router-dom";
 import LoginGoogle from "../../firebase/LoginGoogle";
-import LoginFacebook from "../../firebase/LoginFacebook";
+import LoginGithub from "../../firebase/LoginGithub";
 
-export default function Signup() {
+export default function Signup({setAuth}) {
     const {register, handleSubmit, formState: { errors}} = useForm();
     let navigate = useNavigate();
     const onSubmitSignin = (data) => {
-        const dataNew = {...data,role: 0}
+        const dataNew = {...data,role: 0,photoURL:'http://localhost:3000/assets/images/avatar_empty.jpg'}
         signup(dataNew)
             .then(response => {
                 toast.success("Đăng ký thành công vui lòng đăng nhập !",{
@@ -30,7 +30,10 @@ export default function Signup() {
     // login google
     const loginGoogle = () => {
         LoginGoogle().then((response => response.user))
-        .then((user) =>authenticate({...user,role: 0}))
+        .then((user) =>{
+            setAuth({...user,role: 0})
+            authenticate({...user,role: 0})
+        })
         .then(() => {
             setDisplayBox("flex");
             setTimeout(()=>{
@@ -42,11 +45,26 @@ export default function Signup() {
             },5000)
         });
     }
-    //login loginFacebook
-
-    const loginFacebook = () => {
-        LoginFacebook();
-    }
+    //login loginGithub
+    const loginGithub = () => {
+        LoginGithub()
+          .then((response) => response.user)
+          .then((user) => {
+            authenticate({ ...user, role: 0 });
+            setAuth({ ...user, role: 0 });
+          })
+          .then(() => {
+            setDisplayBox("flex");
+            setTimeout(() => {
+              toast.success("Chào mừng bạn đến Ego Medical Center !", {
+                autoClose: 3000,
+              });
+              navigate("/", { replace: true });
+              setDisplayBox("none");
+            }, 5000);
+          });
+      };
+   
     return (
         <main className="account-page">
         <div className="container">
@@ -59,6 +77,11 @@ export default function Signup() {
                 </div>
                 <div className="form-login">
                     <form id="login" onSubmit={handleSubmit(onSubmitSignin)}>
+                        <div className="form-group">
+                            <label htmlFor="accPassword">Họ & Tên</label>
+                            <input type="text" className="form-control" id="accPassword" {...register("displayName", { required: true })} placeholder="Nhập họ & tên" />
+                            {errors.displayName && <span className="font-italic text-danger error-empty-form">Vui lòng nhập họ & tên</span>}
+                        </div>
                         <div className="form-group">
                             <label htmlFor="accEmail">Email</label>
                             <input type="text" className="form-control" id="accEmail" {...register("email", { required: true })} placeholder="Nhập địa chỉ email" />
@@ -80,8 +103,12 @@ export default function Signup() {
                     <span>hoặc đăng nhập bằng</span>
                 </div>
                 <div className="login-social-network mt-5 mb-5">
-                    <a onClick={() => loginFacebook()} className="login-facebook"><img src={process.env.PUBLIC_URL + '/assets/images/fb-btn.svg'} alt="" /></a>
-                    <a  onClick={() => loginGoogle()} className="login-google"><img src={process.env.PUBLIC_URL + '/assets/images/gp-btn.svg'} alt="" /></a>
+                    <a  onClick={() => loginGoogle()} className="login-google">
+                        <img src={process.env.PUBLIC_URL + '/assets/images/gp-btn.svg'} alt="" />
+                        </a>
+                    <a className="login-google" onClick={() => loginGithub()}>
+                        <img src={process.env.PUBLIC_URL + "/assets/images/github-btn-svg.svg"} alt=""/>
+                    </a>
                 </div>
             </div>
         </div>

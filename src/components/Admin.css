@@ -254,6 +254,7 @@ a {
 .sidebar.open .profile #log_out {
   width: 50px;
   background: none;
+  cursor: pointer;
 }
 .home-section {
   position: relative;

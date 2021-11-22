@@ -1,20 +1,24 @@
 import { Link } from 'react-router-dom';
 import {useState} from "react";
+import { list } from "../../api/productAPI";
 // import Slider from "../../components/Slider";
 export default function Home({products}) {
 
   const [toggleState,setToggleState] = useState(1);
+  const [dataSearch, setDataSearch] = useState(products);
+
   const toggleTab = (index) => {
     setToggleState(index);
   }
-
-
-
   function formatCash(str) {
     str = `${str}`;
       return str.split('').reverse().reduce((prev, next, index) => {
           return ((index % 3) ? next : (next + ',')) + prev
       })
+  }
+  function onChageSearch(e) {
+    var params = "q="+e.target.value;
+    list(params).then((response) =>setDataSearch(response.data))
   }
   
   return (
@@ -344,13 +348,14 @@ export default function Home({products}) {
           </div>
           <div className='box-product-search'>
             <form action=''>
-              <input type='text' placeholder='Tìm sản phẩm khác...' />
+              <input type='text' placeholder='Tìm sản phẩm khác...' onInput={(e) => onChageSearch(e)}/>
               <button><i className='fas fa-search'></i></button>
             </form>
           </div>
           <div className='box-product-showroom row'>
             {
-              products.map((data,index) => {
+              dataSearch.length > 0?
+              dataSearch.map((data,index) => {
                 return (
                   <div className="product-item col-lg-3 col-md-2" key={index}>
                       <div className="product-image">
@@ -375,6 +380,7 @@ export default function Home({products}) {
                       <span className="product-sale">-{formatCash(data.discount)} %</span>
                   </div>);
               })
+              : <p className="data_sreach_empty">Không tìm thấy sản phẩm nào !</p>
             }
             
           </div>

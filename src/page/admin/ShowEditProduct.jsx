@@ -1,9 +1,9 @@
-import { Table,Button,FormControl,Form,Container,FloatingLabel } from "react-bootstrap";
 import { Link,useParams,useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
+import { read } from "../../api/productAPI";
 import { useForm } from "react-hook-form";
 import { useEffect,useState} from "react";
-import { read } from "../../api/productAPI";
+import { ToastContainer, toast } from 'react-toastify';
+import { Table,Button,FormControl,Form,Container,FloatingLabel } from "react-bootstrap";
 
 
 
@@ -14,6 +14,8 @@ const ShowEditProduct = ({post}) => {
 
     let navigate = useNavigate();
     const onUpdate = (data) => {
+        data.price = parseInt(data.price);
+        data.discount = parseInt(data.discount);
         post({ id, ...data });
     };
     useEffect(() => {

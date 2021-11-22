@@ -70,12 +70,95 @@ header .login a {
   color: #fff;
   line-height: 35px;
 }
-header .myAvatar {
+header .login_contact .wrapper-auth {
+  position: relative;
+}
+
+header .login_contact .wrapper-auth ul {
+  opacity: 0;
+  visibility: hidden;
+  text-align: left;
+  transition: all 200ms;
+}
+header .login_contact .wrapper-auth:hover ul {
+  opacity: 1;
+  visibility: visible;
+}
+header .login_contact .box-avatar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+header .login_contact .box-avatar img{
   width: 30px;
+  height: 30px;
   object-fit: cover;
   border-radius: 50%;
   margin-right: 10px;
 }
+header .login_contact .box-avatar span{
+  display: block;
+  width: max-content;
+}
+header .login_contact ul {
+  position: absolute;
+  padding: 4px 0;
+  top: 40px;
+  right: 0;
+  width: 100px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 3px rgba(0, 0, 0, 0.05);
+  list-style-type: none;
+  z-index: 10;
+}
+header .login_contact ul:before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  height: 12px;
+  width: 100%;
+  background-color: transparent;
+}
+header .login_contact ul:after {
+  content: "";
+  position: absolute;
+  right: 6px;
+  top: -16px;
+  height: 0;
+  width: 0;
+  border: 8px solid transparent;
+  border-bottom-color: #ccc;
+}
+header .login_contact li {
+  padding: 5px 10px;
+  color: #999;
+  cursor: pointer;
+  transition: all 100ms;
+}
+header .login_contact li:hover {
+  background-color: #e6e6e6;
+  color: black;
+}
+header .login_contact li:first-of-type:after {
+  content: "";
+  position: absolute;
+  right: 6px;
+  top: -15px;
+  height: 0;
+  width: 0;
+  z-index: 1;
+  border: 8px solid transparent;
+  border-bottom-color: white;
+  pointer-events: none;
+}
+
+
+
+
+
+/* drop down setting user */
 header .header-main {
   background-color: #fff;
 }
@@ -816,7 +899,14 @@ header .cart sub {
 .box-product-search i {
   font-size: 25px;
 }
-
+.box-product .box-product-showroom {
+  min-height: 368px;
+}
+.box-product .box-product-showroom .data_sreach_empty {
+  text-align: center;
+  font-size: 18px;
+  color: #858282;
+}
 .product-item {
   margin-bottom: 50px;
 }

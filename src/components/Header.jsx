@@ -1,11 +1,17 @@
 import '../App.css';
-import { Link,useNavigate } from "react-router-dom";
-import { isAuthenticate } from "../authenticate";
-import { useEffect, useState } from "react";
+import { Link,useNavigate} from "react-router-dom";
 
 
 import {ToastContainer} from "react-toastify"
-export default function Header() {
+export default function Header({auth, setAuth}) {
+  let navigate = useNavigate();
+  function logOut() {
+    navigate("/login", { replace: true });
+    setAuth(false);
+  }
+  function showDashboar() {
+    return auth.role === 1?<li><Link to={"/admin"} className="text-secondary">Dashboard</Link></li>: ""
+  }
   return (
     <header>
       <div className="header__top">
@@ -30,14 +36,25 @@ export default function Header() {
             <div className="col-md-12 col-lg-3 login_contact">
               <div className="login">
                 {
-                  isAuthenticate ? <div className="">
-                    <img src={isAuthenticate().photoURL} alt="" className="myAvatar"/>
-                    { isAuthenticate().displayName }
+                  auth ? 
+                  <div class="wrapper-auth">
+                    <div className="box-avatar">
+                      <img src={auth.photoURL} alt="" className="myAvatar"/>
+                      <span>{ auth.displayName }</span>
                     </div>
-                    : <div className="">
-                      <Link to={"/login"}>Đăng Nhập</Link>/ <Link to={"/signup"}>Đăng Ký</Link>
+                    <ul>
+                      {showDashboar() }
+                      <li>Tài khoản</li>
+                      <li>Cài đặt</li>
+                      <li onClick={() => logOut()}>Đăng xuất</li>
+                    </ul>
+                  </div>
+                  : <div className="">
+                      <Link to={"/login"}>Đăng Nhập</Link>|<Link to={"/signup"}>Đăng Ký</Link>
                     </div>
                 }
+                
+                
               </div>
             </div>
           </div>

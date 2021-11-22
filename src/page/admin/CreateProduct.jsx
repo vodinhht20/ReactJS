@@ -2,6 +2,7 @@ import { Button,Form,Container,FloatingLabel } from "react-bootstrap";
 import { Link,useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
+import UploadFile from "../../components/UploadFile";
 import 'react-toastify/dist/ReactToastify.css';
 
 const CreateProduct = ({post}) => {
@@ -9,12 +10,15 @@ const CreateProduct = ({post}) => {
     const {register, handleSubmit, formState: { errors}} = useForm();
 
     const onSubmitCreate = (data) => {
+        data.price = parseInt(data.price);
+        data.discount = parseInt(data.discount);
+        console.log(UploadFile(data.imager[0]));
+        // data.imager = UploadFile(data.imager[0]); 
         post(data);
         toast.success("Tạo sản phẩm thành công !",{
             onClose: () => navigate("/admin/products/", { replace: true }),
             autoClose: 3000
         });
-        
     }
     return (
         <Container className="pb-5">
@@ -28,7 +32,7 @@ const CreateProduct = ({post}) => {
                 </Form.Group>
                 <Form.Group className="mb-1" controlId="formBasicPassword">
                     <Form.Label>Hình ảnh</Form.Label>
-                    <Form.Control type="text" className="val-image" {...register("imager", { required: true })} placeholder="Nhập hình ảnh" />
+                    <Form.Control type="file" className="val-image" {...register("imager", { required: true })} placeholder="Nhập hình ảnh" />
                     {errors.imager && <span className="font-italic text-danger error-empty-form">Vui lòng nhập hình ảnh</span>}
                 </Form.Group>
                 <Form.Group className="mb-1" id="form-add" controlId="formBasicEmail">

@@ -8,4 +8,7 @@
         return false;
         }
     };
-  
+  export const authLogout = () => {
+    localStorage.removeItem("user");
+      return true;
+  }

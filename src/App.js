@@ -3,6 +3,7 @@ import { BrowserRouter, Routes,Route,Link,Outlet, Navigate, useParams} from "rea
 import { list, remove, create,update} from "./api/productAPI";
 import { useEffect, useState } from "react";
 import { toast } from 'react-toastify';
+import {isAuthenticate} from "./authenticate";
 
 
 import AdminProductShow from "./page/admin/AdminProductShow"; 
@@ -17,11 +18,17 @@ import Signup from './page/website/Signup';
 import ShowEditProduct from "./page/admin/ShowEditProduct";
 import PrivateAdmin from "./page/website/PrivateAdmin";
 import Error404 from "./page/website/Error404";
+import UploadFile from "./components/UploadFile";
 
 
 function App() {
+
+  const [auth, setAuth] = useState(isAuthenticate);
   const [products,setProducts] = useState([]);
-  
+
+  const onChangeLogin = (auth) => {
+    setAuth(auth);
+  }
   useEffect(() => {
     list().then((response => setProducts(response.data)))
   },[])
@@ -66,16 +73,18 @@ function App() {
 return (
   <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LayoutWebsite />}>
+        <Route path="/" element={<LayoutWebsite auth={auth} setAuth={setAuth}/>}>
           <Route index element={<Home products={products} />} />
-          <Route path="signup" element={<Signup />} />
-          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup setAuth={onChangeLogin}/>} />
+          <Route path="login" element={<Login setAuth={onChangeLogin}/>} />
           <Route path="product" element={<div>sản phẩm</div>}/>
           <Route path="category" element={<div>Danh muc san pham</div>} />
           <Route path="product/:id" element={<ProductDetail />} />
+          <Route path="upload-imager" element={<UploadFile />} />
+
           <Route path="*" element={<Error404 />} />
         </Route>
-        <Route path="admin/*" element={<PrivateAdmin ><LayoutAdmin /></PrivateAdmin>}>
+        <Route path="admin/*" element={<PrivateAdmin ><LayoutAdmin auth={auth} setAuth={setAuth}/></PrivateAdmin>}>
           <Route index element={<Navigate to="dashboard" />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="products" element={<AdminProductShow products={products} onRemove={onHandleRemove} />} />
