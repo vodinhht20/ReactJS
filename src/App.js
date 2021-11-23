@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import { BrowserRouter, Routes,Route,Link,Outlet, Navigate, useParams} from "react-router-dom";
 import { list, remove, create,update} from "./api/productAPI";
 import { useEffect, useState } from "react";
@@ -18,7 +19,6 @@ import Signup from './page/website/Signup';
 import ShowEditProduct from "./page/admin/ShowEditProduct";
 import PrivateAdmin from "./page/website/PrivateAdmin";
 import Error404 from "./page/website/Error404";
-import UploadFile from "./components/UploadFile";
 
 
 function App() {
@@ -36,9 +36,6 @@ function App() {
     remove(id).then(() => {
       const newProducts = products.filter((item) => item.id !== id);
       setProducts(newProducts);
-      toast.success("Đã xóa sản phẩm !",{
-        autoClose: 3000
-    });
     });
   }
   const onHandleAdd = (post) => {
@@ -80,7 +77,6 @@ return (
           <Route path="product" element={<div>sản phẩm</div>}/>
           <Route path="category" element={<div>Danh muc san pham</div>} />
           <Route path="product/:id" element={<ProductDetail />} />
-          <Route path="upload-imager" element={<UploadFile />} />
 
           <Route path="*" element={<Error404 />} />
         </Route>

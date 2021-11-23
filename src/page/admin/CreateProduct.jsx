@@ -2,18 +2,19 @@ import { Button,Form,Container,FloatingLabel } from "react-bootstrap";
 import { Link,useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
-import UploadFile from "../../components/UploadFile";
+import UploadImage from "../../components/UploadImage";
 import 'react-toastify/dist/ReactToastify.css';
 
 const CreateProduct = ({post}) => {
     let navigate = useNavigate();
     const {register, handleSubmit, formState: { errors}} = useForm();
 
-    const onSubmitCreate = (data) => {
-        data.price = parseInt(data.price);
-        data.discount = parseInt(data.discount);
-        console.log(UploadFile(data.imager[0]));
-        // data.imager = UploadFile(data.imager[0]); 
+    const onSubmitCreate = async (data) => {
+        data.price =  parseInt(data.price);
+        data.discount =  parseInt(data.discount);
+        await UploadImage(data.imager[0]).then((response) => {
+            data.imager = response.url;
+        });
         post(data);
         toast.success("Tạo sản phẩm thành công !",{
             onClose: () => navigate("/admin/products/", { replace: true }),

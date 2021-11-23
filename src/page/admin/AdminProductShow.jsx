@@ -3,17 +3,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { list } from "../../api/productAPI";
 import { useState, useEffect } from "react";
-import { Table, Button, Modal, Container, Form } from "react-bootstrap";
+import {Button, Container, Form } from "react-bootstrap";
 import { ToastContainer } from "react-toastify";
+import { Pagination,Table } from 'antd';
+
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
 
 const AdminProductShow = ({ products, onRemove }) => {
-  const [show, setShow] = useState(false);
-  const [idDelete, setIdDelete] = useState(0);
 
   const [filter, setFilter] = useState(products);
   const [iconFilter, setIconFilter] = useState(faSort);
 
-  
+  useEffect(() => {
+    setFilter(products)
+  },[products])
 
   const onHandleSort = (e) => {
     if (e.target.value==1) {
@@ -50,15 +55,75 @@ const AdminProductShow = ({ products, onRemove }) => {
       })
   }
 
-  const handleClose = () => setShow(false);
-  const handleConfirmDelete = (id) => {
-    onRemove(id);
-    return setShow(false);
+  const handleShow = (idProduct) => {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+    
+    swalWithBootstrapButtons.fire({
+      title: 'Xác nhận xóa',
+      text: "Hành động này không thể thể khôi phục",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Xác nhận',
+      cancelButtonText: 'Hủy bỏ',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        onRemove(idProduct);
+
+        swalWithBootstrapButtons.fire(
+          'Đã xóa',
+          'Bạn đã xóa thành công sản phẩm này',
+          'success'
+        )
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Hủy bỏ',
+          'Bạn đã hủy lệnh này',
+          'error'
+        )
+      }
+    })
+    // const onChangePage = () => {
+    //   console.log("đá");
+    // }
   };
-  const handleShow = (id) => {
-    setIdDelete(id);
-    return setShow(true);
-  };
+
+  const collumns = [
+    {
+      key: "1",
+      title: "Tên sản phẩm",
+      dataIndex: "name"
+    }, {
+      key: "2",
+      title: "Hình ảnh",
+      dataIndex: "imager",
+      render: (imager) => {
+        return <img src={imager}/>;
+      }
+    }, {
+      key: "3",
+      title: "Đơn giá",
+      dataIndex: "price"
+    }, {
+      key: "4",
+      title: "Giảm giá",
+      dataIndex: "discount"
+    }, {
+      key: "5",
+      title: "Mô tả ngắn",
+      dataIndex: "description_short"
+    }
+  ]
+
 
   return (
     <Container>
@@ -83,7 +148,7 @@ const AdminProductShow = ({ products, onRemove }) => {
           </Form.Select>
         </div>
       </div>
-      <Table className="list-products">
+      <Table>
         <thead className="bg-Info text-white">
           <tr>
             <th>Tên sản phẩm</th>
@@ -129,28 +194,7 @@ const AdminProductShow = ({ products, onRemove }) => {
           })}
         </tbody>
       </Table>
-      <>
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Thống báo</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            Bạn có muốn xóa sản phẩm này không? Hành động này không thể khôi
-            phục !
-          </Modal.Body>
-          <Modal.Footer>
-            <Button
-              variant="danger"
-              onClick={() => handleConfirmDelete(idDelete)}
-            >
-              Xác nhận
-            </Button>
-            <Button variant="secondary" onClick={handleClose}>
-              Đóng
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </>
+      <Pagination defaultCurrent={1} defaultPageSize={2} onChange={2,2} total={filter.length} />
       <ToastContainer />
     </Container>
   );

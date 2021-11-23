@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import {useState} from "react";
 import { list } from "../../api/productAPI";
-// import Slider from "../../components/Slider";
 export default function Home({products}) {
 
   const [toggleState,setToggleState] = useState(1);
