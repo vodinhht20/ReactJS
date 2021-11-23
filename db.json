@@ -3,38 +3,112 @@
     {
       "name": "Máy đo huyết áp cổ tay Đức",
       "imager": "https://bizweb.dktcdn.net/thumb/large/100/382/483/products/may-do-huyet-ap-co-tay-beurer-bc30-6b297beb-3565-4c5e-bfbe-1c34b167f35d.jpg?v=1585510030550",
+      "category": 2,
       "price": 800000,
       "discount": 10,
       "description_short": "Kính gửi Quý khách hàng! Nhằm đảo bảo sức khỏe cho Quý khách và cộng đồng trong đại dịch Covid-19, Quý khách vui lòng không đến trực tiếp mua hàng. Chúng tôi sẽ Giao hàng và thu tiền tại nhà trên toàn quốc cho Quý khách. Với trên 13 năm kinh nghiệm bán hàng Online chúng tôi sẽ làm hài lòng Quý khách.",
       "description": "Máy đo huyết áp cổ tay Beurer BC50 đem đến cho bạn kết quả nhanh chóng, chính xác\nMáy đo huyết áp cổ tay Beurer BC30 được ứng dụng công nghệ cảm biến Fuzzy logic, giúp đo huyết áp một cách nhanh chóng, chính xác. Dễ dàng sử dụng chỉ với 1 nút bấm cùng nhiều tính năng hiện đại khác.",
       "id": "KtghlbL"
-    },
-    {
-      "name": "Máy đo huyết áp cổ tay Đức",
-      "imager": "https://bizweb.dktcdn.net/thumb/large/100/382/483/products/may-do-huyet-ap-co-tay-beurer-bc30-6b297beb-3565-4c5e-bfbe-1c34b167f35d.jpg?v=1585510030550",
-      "price": 800000,
-      "discount": 10,
-      "description_short": "Kính gửi Quý khách hàng! Nhằm đảo bảo sức khỏe cho Quý khách và cộng đồng trong đại dịch Covid-19, Quý khách vui lòng không đến trực tiếp mua hàng. Chúng tôi sẽ Giao hàng và thu tiền tại nhà trên toàn quốc cho Quý khách. Với trên 13 năm kinh nghiệm bán hàng Online chúng tôi sẽ làm hài lòng Quý khách.",
-      "description": "Máy đo huyết áp cổ tay Beurer BC50 đem đến cho bạn kết quả nhanh chóng, chính xác\nMáy đo huyết áp cổ tay Beurer BC30 được ứng dụng công nghệ cảm biến Fuzzy logic, giúp đo huyết áp một cách nhanh chóng, chính xác. Dễ dàng sử dụng chỉ với 1 nút bấm cùng nhiều tính năng hiện đại khác.",
-      "id": "KtghlbL"
-    },
-    {
-      "name": "Khẩu Trang Y Tế N95",
-      "imager": "https://thuc-pham-xanh.herokuapp.com/image/sp3.jpg",
-      "price": 100000,
-      "discount": 20,
-      "description_short": "ok",
-      "description": "sádasdas",
-      "id": "JpjEMun"
     },
     {
       "name": "Võ Văn Định 1234",
       "imager": "https://thuc-pham-xanh.herokuapp.com/image/sp3.jpg",
+      "category": 2,
       "price": 100000,
       "discount": 10,
       "description_short": "adad",
       "description": "ádsda",
-      "id": "UPnRSty"
+      "id": "UPnsRdSty"
+    },
+    {
+      "name": "Máy đo huyết áp cổ tay Đức",
+      "imager": "https://bizweb.dktcdn.net/thumb/large/100/382/483/products/may-do-huyet-ap-co-tay-beurer-bc30-6b297beb-3565-4c5e-bfbe-1c34b167f35d.jpg?v=1585510030550",
+      "category": 4,
+      "price": 800000,
+      "discount": 10,
+      "description_short": "Kính gửi Quý khách hàng! Nhằm đảo bảo sức khỏe cho Quý khách và cộng đồng trong đại dịch Covid-19, Quý khách vui lòng không đến trực tiếp mua hàng. Chúng tôi sẽ Giao hàng và thu tiền tại nhà trên toàn quốc cho Quý khách. Với trên 13 năm kinh nghiệm bán hàng Online chúng tôi sẽ làm hài lòng Quý khách.",
+      "description": "Máy đo huyết áp cổ tay Beurer BC50 đem đến cho bạn kết quả nhanh chóng, chính xác\nMáy đo huyết áp cổ tay Beurer BC30 được ứng dụng công nghệ cảm biến Fuzzy logic, giúp đo huyết áp một cách nhanh chóng, chính xác. Dễ dàng sử dụng chỉ với 1 nút bấm cùng nhiều tính năng hiện đại khác.",
+      "id": "KtghlabsL"
+    },
+    {
+      "name": "Khẩu Trang Y Tế N95",
+      "imager": "https://thuc-pham-xanh.herokuapp.com/image/sp3.jpg",
+      "category": 1,
+      "price": 100000,
+      "discount": 20,
+      "description_short": "ok",
+      "description": "sádasdas",
+      "id": "JpjfEdMun"
+    },
+    {
+      "name": "Võ Văn Định 1234",
+      "imager": "https://thuc-pham-xanh.herokuapp.com/image/sp3.jpg",
+      "category": 2,
+      "price": 100000,
+      "discount": 10,
+      "description_short": "adad",
+      "description": "ádsda",
+      "id": "UPsnRS3fty"
+    },
+    {
+      "name": "Máy đo huyết áp cổ tay Đức",
+      "imager": "https://bizweb.dktcdn.net/thumb/large/100/382/483/products/may-do-huyet-ap-co-tay-beurer-bc30-6b297beb-3565-4c5e-bfbe-1c34b167f35d.jpg?v=1585510030550",
+      "category": 3,
+      "price": 800000,
+      "discount": 10,
+      "description_short": "Kính gửi Quý khách hàng! Nhằm đảo bảo sức khỏe cho Quý khách và cộng đồng trong đại dịch Covid-19, Quý khách vui lòng không đến trực tiếp mua hàng. Chúng tôi sẽ Giao hàng và thu tiền tại nhà trên toàn quốc cho Quý khách. Với trên 13 năm kinh nghiệm bán hàng Online chúng tôi sẽ làm hài lòng Quý khách.",
+      "description": "Máy đo huyết áp cổ tay Beurer BC50 đem đến cho bạn kết quả nhanh chóng, chính xác\nMáy đo huyết áp cổ tay Beurer BC30 được ứng dụng công nghệ cảm biến Fuzzy logic, giúp đo huyết áp một cách nhanh chóng, chính xác. Dễ dàng sử dụng chỉ với 1 nút bấm cùng nhiều tính năng hiện đại khác.",
+      "id": "Kt2gshlbL"
+    },
+    {
+      "name": "Khẩu Trang Y Tế N95",
+      "imager": "https://thuc-pham-xanh.herokuapp.com/image/sp3.jpg",
+      "category": 4,
+      "price": 100000,
+      "discount": 20,
+      "description_short": "ok",
+      "description": "sádasdas",
+      "id": "JapdjEM4un"
+    },
+    {
+      "name": "Võ Văn Định 1234",
+      "imager": "https://thuc-pham-xanh.herokuapp.com/image/sp3.jpg",
+      "category": 5,
+      "price": 100000,
+      "discount": 10,
+      "description_short": "adad",
+      "description": "ádsda",
+      "id": "UPnsvRdSty"
+    },
+    {
+      "name": "Máy đo huyết áp cổ tay Đức",
+      "imager": "https://bizweb.dktcdn.net/thumb/large/100/382/483/products/may-do-huyet-ap-co-tay-beurer-bc30-6b297beb-3565-4c5e-bfbe-1c34b167f35d.jpg?v=1585510030550",
+      "category": 2,
+      "price": 800000,
+      "discount": 10,
+      "description_short": "Kính gửi Quý khách hàng! Nhằm đảo bảo sức khỏe cho Quý khách và cộng đồng trong đại dịch Covid-19, Quý khách vui lòng không đến trực tiếp mua hàng. Chúng tôi sẽ Giao hàng và thu tiền tại nhà trên toàn quốc cho Quý khách. Với trên 13 năm kinh nghiệm bán hàng Online chúng tôi sẽ làm hài lòng Quý khách.",
+      "description": "Máy đo huyết áp cổ tay Beurer BC50 đem đến cho bạn kết quả nhanh chóng, chính xác\nMáy đo huyết áp cổ tay Beurer BC30 được ứng dụng công nghệ cảm biến Fuzzy logic, giúp đo huyết áp một cách nhanh chóng, chính xác. Dễ dàng sử dụng chỉ với 1 nút bấm cùng nhiều tính năng hiện đại khác.",
+      "id": "Ktg5hlabsL"
+    },
+    {
+      "name": "Khẩu Trang Y Tế N95",
+      "imager": "https://thuc-pham-xanh.herokuapp.com/image/sp3.jpg",
+      "category": 3,
+      "price": 100000,
+      "discount": 20,
+      "description_short": "ok",
+      "description": "sádasdas",
+      "id": "JpjfE7dMun"
+    },
+    {
+      "name": "Võ Văn Định 1234",
+      "imager": "https://thuc-pham-xanh.herokuapp.com/image/sp3.jpg",
+      "category": 1,
+      "price": 100000,
+      "discount": 10,
+      "description_short": "adad",
+      "description": "ádsda",
+      "id": "UPsnRSft8y"
     }
   ],
   "users": [

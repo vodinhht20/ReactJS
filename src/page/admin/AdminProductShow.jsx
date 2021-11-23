@@ -1,3 +1,4 @@
+import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { faSort,faSortDown,faSortUp,faSortAlphaDown,faSortAlphaUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
@@ -14,87 +15,36 @@ import withReactContent from 'sweetalert2-react-content'
 const AdminProductShow = ({ products, onRemove }) => {
 
   const [filter, setFilter] = useState(products);
-  const [iconFilter, setIconFilter] = useState(faSort);
 
   useEffect(() => {
     setFilter(products)
   },[products])
 
-  const onHandleSort = (e) => {
-    if (e.target.value==1) {
-      list("_sort=name&_order=asc").then((response) => {
-        setFilter(response.data);
-        setIconFilter(faSortAlphaDown);
-      })
-    } else if(e.target.value==2) {
-      list("_sort=name&_order=desc").then((response) => {
-        setFilter(response.data);
-        setIconFilter(faSortAlphaUp);
-      })
-    } else if (e.target.value==3) {
-      list("_sort=price&_order=asc").then((response) => {
-        setFilter(response.data);
-        setIconFilter(faSortDown);
-      })
-    } else if (e.target.value==4) {
-      list("_sort=price&_order=desc").then((response) => {
-        setFilter(response.data);
-        setIconFilter(faSortUp);
-      })
-    } else {
-      list("").then((response) => {
-        setFilter(response.data);
-        setIconFilter(faSort);
-      })
-    }
-  }
   function formatCash(str) {
     str = `${str}`;
       return str.split('').reverse().reduce((prev, next, index) => {
           return ((index % 3) ? next : (next + ',')) + prev
       })
   }
-
   const handleShow = (idProduct) => {
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
-      },
-      buttonsStyling: false
-    })
-    
-    swalWithBootstrapButtons.fire({
+    Swal.fire({
       title: 'Xác nhận xóa',
       text: "Hành động này không thể thể khôi phục",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Xác nhận',
-      cancelButtonText: 'Hủy bỏ',
-      reverseButtons: true
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Xác nhận'
     }).then((result) => {
       if (result.isConfirmed) {
         onRemove(idProduct);
-
-        swalWithBootstrapButtons.fire(
-          'Đã xóa',
+        Swal.fire(
+          'Đã xóa !',
           'Bạn đã xóa thành công sản phẩm này',
           'success'
         )
-      } else if (
-        /* Read more about handling dismissals below */
-        result.dismiss === Swal.DismissReason.cancel
-      ) {
-        swalWithBootstrapButtons.fire(
-          'Hủy bỏ',
-          'Bạn đã hủy lệnh này',
-          'error'
-        )
       }
     })
-    // const onChangePage = () => {
-    //   console.log("đá");
-    // }
   };
 
   const collumns = [
@@ -107,24 +57,74 @@ const AdminProductShow = ({ products, onRemove }) => {
       title: "Hình ảnh",
       dataIndex: "imager",
       render: (imager) => {
-        return <img src={imager}/>;
+        return <img src={imager} style={{width: 100}}/>;
       }
     }, {
       key: "3",
       title: "Đơn giá",
-      dataIndex: "price"
+      dataIndex: "price",
+      render: (price) => {
+        return `${formatCash(price)} đ`;
+      },
+      sorter: (sorter1, sorter2) => {
+        return sorter1.price > sorter2.price
+      }
     }, {
       key: "4",
       title: "Giảm giá",
-      dataIndex: "discount"
+      dataIndex: "discount",
+      render: (discount) => {
+        return discount+" %";
+      }
     }, {
       key: "5",
+      title: "Loại hàng",
+      dataIndex: "category",
+      render: (category) => {
+        if (category=== 1) {
+          return "Thiết bị y tế";
+        }else if (category=== 2) {
+          return "Thuốc trị ngoài da";
+        }else if (category=== 3) {
+          return "Thuốc cảm cúm, ho, sốt, ...";
+        }else if (category=== 4) {
+          return "Dụng cụ y tế";
+        }else if (category=== 5) {
+          return "Thiết bị nội soi";
+        } else {
+          return "Thiết bị khác";
+        }
+      },
+      filters: [
+        {text: "Thiết bị y tế", value:1},
+        {text: "Thuốc trị ngoài da", value:2},
+        {text: "Thuốc cảm cúm, ho, sốt, ...", value:3},
+        {text: "Thiết bị nội soi", value:4},
+        {text: "Thiết bị khác", value:5}
+      ],
+      onFilter: (value,record) => {
+        return record.category === value;
+      }
+    }, {
+      key: "6",
       title: "Mô tả ngắn",
-      dataIndex: "description_short"
+      dataIndex: "description_short",
+      render: (description_short) => {
+        return <div style={{maxWidth: "250px"}}>{description_short}</div>
+      }
     }
+    , {
+      key: "7",
+      title: "Action",
+      render: (record) => {
+        return <div style={{minWidth: "70px", display: "flex", justifyContent: "space-between"}}>
+          <Link to={`/admin/product/${record.id}/edit`}><EditOutlined style={{color: "#096dd9", cursor: "pointer", fontSize: "23px"}} title="Sửa"/></Link>
+          <DeleteOutlined onClick={() =>handleShow(record.id)} style={{color: "#f5222d", marginLeft: "3px", cursor: "pointer", fontSize: "23px"}} title="Xóa"/>
+        </div>
+      }
+    }
+
   ]
-
-
   return (
     <Container>
       <h2 className="text-center p-3 mb-3">Danh sách sản phẩm</h2>
@@ -135,66 +135,13 @@ const AdminProductShow = ({ products, onRemove }) => {
             Thêm sản phẩm
           </Button>
         </Link>
-        <div className="box_select d-flex col-md-6 col-lg-6 justify-content-end align-items-center">
-          <lable className="me-sm-2" htmlFor="inlineFormCustomSelect" >
-            Sắp xếp <FontAwesomeIcon icon={iconFilter}/> :
-          </lable>
-          <Form.Select className="me-sm-2" id="inlineFormCustomSelect" style={{width: "200px"}} onChange={(e) => onHandleSort(e)}>
-            <option value="">---- Lựa chọn sắp xếp ----</option>
-            <option value="1">Tên A - Z</option>
-            <option value="2">Tên Z - A</option>
-            <option value="3">Đơn giá tăng dần</option>
-            <option value="4">Đơn giá giảm dần</option>
-          </Form.Select>
-        </div>
       </div>
-      <Table>
-        <thead className="bg-Info text-white">
-          <tr>
-            <th>Tên sản phẩm</th>
-            <th>Hình ảnh</th>
-            <th>Đơn giá</th>
-            <th>Giảm giá</th>
-            <th>Mô tả</th>
-            <th colSpan="3"></th>
-          </tr>
-        </thead>
-        <tbody>
-          {filter.map((item, index) => {
-            return (
-              <tr key={index}>
-                <td>{item.name}</td>
-                <td>
-                  <img src={item.imager} width="100" />
-                </td>
-                <td>{formatCash(item.price)} đ</td>
-                <td>{item.discount} %</td>
-                <td>{item.description_short}</td>
-                <td>
-                  <Link to={"/product/" + item.id}>
-                    <Button variant="success" className="d-block m-auto">
-                      Chi Tiết
-                    </Button>
-                  </Link>
-                </td>
-                <td>
-                  <Link to={"/admin/product/" + item.id + "/edit"}>
-                    <Button variant="primary" className="d-block m-auto">
-                      Sửa
-                    </Button>
-                  </Link>
-                </td>
-                <td>
-                  <Button variant="danger" onClick={() => handleShow(item.id)}>
-                    Xóa
-                  </Button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
+      <Table 
+        columns={collumns}
+        dataSource={filter}
+        pagination={true}
+      >
       </Table>
-      <Pagination defaultCurrent={1} defaultPageSize={2} onChange={2,2} total={filter.length} />
       <ToastContainer />
     </Container>
   );

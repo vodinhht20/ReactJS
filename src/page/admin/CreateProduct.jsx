@@ -28,7 +28,7 @@ const CreateProduct = ({post}) => {
             <Form onSubmit={handleSubmit(onSubmitCreate)} className="mt-3 mb-3">
                 <Form.Group className="mb-1" id="form-add" controlId="formBasicEmail">
                     <Form.Label id="">Tên sản phẩm</Form.Label>
-                    <Form.Control type="text" className="val-name" {...register("name", { required: true })} placeholder="Nhập tên sản phẩm"/>
+                    <Form.Control type="text" className="val-name" {...register("name", { required: true, maxLength: 30 })} placeholder="Nhập tên sản phẩm"/>
                     {errors.name && <span className="font-italic text-danger error-empty-form">Vui lòng nhập tên sản phẩm</span>}
                 </Form.Group>
                 <Form.Group className="mb-1" controlId="formBasicPassword">
@@ -38,23 +38,23 @@ const CreateProduct = ({post}) => {
                 </Form.Group>
                 <Form.Group className="mb-1" id="form-add" controlId="formBasicEmail">
                     <Form.Label id="">Đơn giá </Form.Label>
-                    <Form.Control type="number" className="val-price" {...register("price", { required: true })} placeholder="Nhập đơn giá" />
+                    <Form.Control type="number" className="val-price" {...register("price", { required: true,min: 0 })} placeholder="Nhập đơn giá" />
                     {errors.price && <span className="font-italic text-danger error-empty-form">Vui lòng nhập đơn giá</span>}
                 </Form.Group>
                 <Form.Group className="mb-1" id="form-add" controlId="formBasicEmail">
                     <Form.Label id="">Giảm giá</Form.Label>
-                    <Form.Control type="number" className="val-discount" {...register("discount", { required: true })}placeholder="Nhập giảm giá" />
+                    <Form.Control type="number" className="val-discount" {...register("discount", { required: true,min: 0,max:100 })}placeholder="Nhập giảm giá" />
                     {errors.discount && <span className="font-italic text-danger error-empty-form">Vui lòng nhập giảm giá</span>}
                 </Form.Group>
                 <Form.Group className="mb-1" id="form-add" controlId="formBasicEmail">
                     <Form.Label id="">Thông tin sản phẩm</Form.Label>
                 </Form.Group>
                 <FloatingLabel controlId="floatingTextarea" label="Mô tả ngắn" className="mb-1">
-                    <Form.Control as="textarea" {...register("description_short", { required: true })} placeholder="Nhập mô tả ngắn" />
+                    <Form.Control as="textarea" {...register("description_short", { required: true, maxLength: 200 })} placeholder="Nhập mô tả ngắn" />
                     {errors.description_short && <span className="font-italic text-danger error-empty-form">Vui lòng nhập mô tả ngắn</span>}
                 </FloatingLabel>
                 <FloatingLabel controlId="floatingTextarea2" label="Mô tả chi tiết">
-                    <Form.Control as="textarea" {...register("description", { required: true })} placeholder="Nhập mô tả chi tiết" style={{ height: '100px' }} />
+                    <Form.Control as="textarea" {...register("description", { required: true, maxLength: 500 })} placeholder="Nhập mô tả chi tiết" style={{ height: '100px' }} />
                     {errors.description && <span className="font-italic text-danger error-empty-form">Vui lòng nhập mô tả chi tiết</span>} 
                 </FloatingLabel>
                 <Button variant="primary" type="submit" className="mt-3 bnt-submit-form">

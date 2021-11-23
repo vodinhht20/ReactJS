@@ -1,6 +1,9 @@
+import { Carousel } from 'antd';
 import { Link } from 'react-router-dom';
 import {useState} from "react";
 import { list } from "../../api/productAPI";
+import { Pagination} from 'antd';
+
 export default function Home({products}) {
 
   const [toggleState,setToggleState] = useState(1);
@@ -20,12 +23,34 @@ export default function Home({products}) {
     list(params).then((response) =>setDataSearch(response.data))
   }
   
+
+  const contentStyle = {
+    height: '500px',
+    objectFit: 'cover',
+    color: '#fff',
+    lineHeight: '160px',
+    textAlign: 'center',
+    background: '#364d79',
+    
+  };
   return (
     
     <main>
-    <div className='banner'>
-      <img src={process.env.PUBLIC_URL + '/assets/images/slider_1.jpg'} alt='' />
-      {/* <Slider /> */}
+    <div className='banner' >
+      <Carousel effect="scrollx" autoplay="true">
+        <div>
+          <img style={contentStyle} src="https://s3-ap-southeast-1.amazonaws.com/pharmacity-ecm-asm-dev/banner-thang-1021/banner-921x280.webp" alt='' />
+        </div>
+        <div>
+          <img style={contentStyle} src="https://s3-ap-southeast-1.amazonaws.com/pharmacity-ecm-asm-dev/banner-thang-1021/website-3x1.webp" alt='' />
+        </div>
+        <div>
+          <img style={contentStyle} src="https://s3-ap-southeast-1.amazonaws.com/pharmacity-ecm-asm-dev/banner-thang-11/website-banner.webp" alt='' />
+        </div>
+        <div>
+          <img style={contentStyle} src="https://s3-ap-southeast-1.amazonaws.com/pharmacity-ecm-asm-dev/banner-thang-11/sp1k-banner-112021-01.webp" alt='' />
+        </div>
+      </Carousel>
     </div>
     <div className='content'>
       <div className='box-introduces'>
@@ -383,12 +408,7 @@ export default function Home({products}) {
             }
             
           </div>
-          {/* <nav aria-label="Page navigation example">
-            <ul className="pagination justify-content-center">
-              <li className="page-item disabled"><a className="page-link" tabindex="-1">Trước</a></li>
-              <li className="page-item"><a className="page-link" >Tiếp</a></li>
-            </ul>
-          </nav> */}
+          {/* <Pagination defaultCurrent={1} total={dataSearch} /> */}
         </div>
       </div>
     </div>
