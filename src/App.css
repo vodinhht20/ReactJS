@@ -725,7 +725,7 @@ header .cart sub {
   margin-bottom: 60px;
 }
 
-.generality-title h1 {
+.generality-title h2 {
   text-align: center;
   font-weight: 600;
 }
@@ -1129,6 +1129,11 @@ footer p {
   text-align: center;
   color: #444;
   font-size: 17px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+
 }
 
 .product-item .product-information a p:hover {

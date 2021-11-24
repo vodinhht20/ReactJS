@@ -12,6 +12,7 @@ const CreateProduct = ({post}) => {
     const onSubmitCreate = async (data) => {
         data.price =  parseInt(data.price);
         data.discount =  parseInt(data.discount);
+        data.category = parseInt(data.category);
         await UploadImage(data.imager[0]).then((response) => {
             data.imager = response.url;
         });
@@ -45,6 +46,17 @@ const CreateProduct = ({post}) => {
                     <Form.Label id="">Giảm giá</Form.Label>
                     <Form.Control type="number" className="val-discount" {...register("discount", { required: true,min: 0,max:100 })}placeholder="Nhập giảm giá" />
                     {errors.discount && <span className="font-italic text-danger error-empty-form">Vui lòng nhập giảm giá</span>}
+                </Form.Group>
+                <Form.Group className="mb-1" id="form-add" controlId="formBasicEmail">
+                    <Form.Label id="">Loại sản phẩm</Form.Label>
+                    <Form.Select {...register("category", { required: true})}>
+                        <option value> ---- Lựa chọn loại sản phẩm -----</option>
+                        <option value="1">Thiết bị y tế</option>
+                        <option value="2">Thuốc trị ngoài da</option>
+                        <option value="4">Dụng cụ y tế</option>
+                        <option value="5">Thiết bị khác</option>
+                    </Form.Select>
+                    {errors.category && <span className="font-italic text-danger error-empty-form">Vui chọn loại sản phẩm</span>}
                 </Form.Group>
                 <Form.Group className="mb-1" id="form-add" controlId="formBasicEmail">
                     <Form.Label id="">Thông tin sản phẩm</Form.Label>

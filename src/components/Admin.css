@@ -256,6 +256,12 @@ a {
   background: none;
   cursor: pointer;
 }
+.max-row-text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
 .home-section {
   position: relative;
   background: #e4e9f7;

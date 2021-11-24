@@ -8,7 +8,8 @@ import {isAuthenticate} from "./authenticate";
 
 
 import AdminProductShow from "./page/admin/AdminProductShow"; 
-import CreateProduct from "./page/admin/CreateProduct"; 
+import CreateProduct from "./page/admin/CreateProduct";
+import Category from "./page/website/Category";
 import Dashboard from "./page/admin/Dashboard";
 import Home from './page/website/Home';
 import ProductDetail from './page/website/ProductDetail';
@@ -77,6 +78,7 @@ return (
           <Route path="product" element={<div>sản phẩm</div>}/>
           <Route path="category" element={<div>Danh muc san pham</div>} />
           <Route path="product/:id" element={<ProductDetail />} />
+          <Route path="loai-san-pham/:id" element={<Category />} />
 
           <Route path="*" element={<Error404 />} />
         </Route>

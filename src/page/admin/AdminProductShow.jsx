@@ -86,7 +86,7 @@ const AdminProductShow = ({ products, onRemove }) => {
         }else if (category=== 2) {
           return "Thuốc trị ngoài da";
         }else if (category=== 3) {
-          return "Thuốc cảm cúm, ho, sốt, ...";
+          return "Thuốc chữa bệnh";
         }else if (category=== 4) {
           return "Dụng cụ y tế";
         }else if (category=== 5) {
@@ -98,7 +98,7 @@ const AdminProductShow = ({ products, onRemove }) => {
       filters: [
         {text: "Thiết bị y tế", value:1},
         {text: "Thuốc trị ngoài da", value:2},
-        {text: "Thuốc cảm cúm, ho, sốt, ...", value:3},
+        {text: "Thuốc chữa bệnh", value:3},
         {text: "Thiết bị nội soi", value:4},
         {text: "Thiết bị khác", value:5}
       ],
@@ -110,7 +110,7 @@ const AdminProductShow = ({ products, onRemove }) => {
       title: "Mô tả ngắn",
       dataIndex: "description_short",
       render: (description_short) => {
-        return <div style={{maxWidth: "250px"}}>{description_short}</div>
+        return <div style={{maxWidth: "250px"}} className="max-row-text">{description_short}</div>
       }
     }
     , {
