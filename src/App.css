@@ -6,17 +6,17 @@
 
 @font-face {
   font-family: "JosefinSans";
-  src: url("http://localhost:3000/assets/fonts/JosefinSans-VariableFont_wght.ttf");
+  src: url("https://react-js-nine.vercel.app/assets/fonts/JosefinSans-VariableFont_wght.ttf");
 }
 
 @font-face {
   font-family: "Montserrat_italic";
-  src: url("http://localhost:3000/assets/fonts/Montserrat-Italic.ttf");
+  src: url("https://react-js-nine.vercel.app/assets/fonts/Montserrat-Italic.ttf");
 }
 
 @font-face {
   font-family: "Montserrat_Bold";
-  src: url("http://localhost:3000/assets/fonts/Montserrat-BoldItalic.ttf");
+  src: url("https://react-js-nine.vercel.app/assets/fonts/Montserrat-BoldItalic.ttf");
 }
 
 :root {
@@ -557,7 +557,7 @@ header .cart sub {
   background-position: right;
   background-attachment: fixed;
   padding: 50px 0;
-  background-image: url("http://localhost:3000/assets/images/bg-bottom-right.png");
+  background-image: url("https://react-js-nine.vercel.app/assets/images/bg-bottom-right.png");
 }
 
 .bg-department-item {
@@ -930,7 +930,7 @@ header .cart sub {
 }
 
 .title-intro {
-  background-image: url("http://localhost:3000/assets/images/bg_bread_crumb.jpg");
+  background-image: url("https://react-js-nine.vercel.app/assets/images/bg_bread_crumb.jpg");
   padding: 100px 0;
 }
 
@@ -1416,7 +1416,7 @@ footer p {
 }
 
 .four_zero_four_bg {
-  background-image: url("http://localhost:3000/assets/images/404-page.gif");
+  background-image: url("https://react-js-nine.vercel.app/assets/images/404-page.gif");
   height: 650px;
   background-position: center;
 }
