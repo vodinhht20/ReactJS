@@ -35,7 +35,7 @@ const ShowCategory = ({ categories,setCategories}) => {
         setCategories(dataNew);
         Swal.fire({
           icon: 'success',
-          title: 'Bạn đã chuyển trạn thái thành công',
+          title: 'Bạn đã chuyển trạng thái thành công',
           showConfirmButton: false,
           timer: 1500
         })
