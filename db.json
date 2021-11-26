@@ -6,8 +6,9 @@
       "category": 2,
       "price": 100000,
       "discount": 10,
-      "description_short": "adad",
+      "description_short": "adad ngon",
       "description": "ádsda",
+      "view": 1,
       "id": "UPnsRdSty"
     },
     {
@@ -18,6 +19,7 @@
       "discount": 10,
       "description_short": "Kính gửi Quý khách hàng! Nhằm đảo bảo sức khỏe cho Quý khách và cộng đồng trong đại dịch Covid-19, Quý khách vui lòng không đến trực tiếp mua hàng. Chúng tôi sẽ Giao hàng và thu tiền tại nhà trên toàn quốc cho Quý khách. Với trên 13 năm kinh nghiệm bán hàng Online chúng tôi sẽ làm hài lòng Quý khách.",
       "description": "Máy đo huyết áp cổ tay Beurer BC50 đem đến cho bạn kết quả nhanh chóng, chính xác\nMáy đo huyết áp cổ tay Beurer BC30 được ứng dụng công nghệ cảm biến Fuzzy logic, giúp đo huyết áp một cách nhanh chóng, chính xác. Dễ dàng sử dụng chỉ với 1 nút bấm cùng nhiều tính năng hiện đại khác.",
+      "view": null,
       "id": "KtghlabsL"
     },
     {
@@ -28,6 +30,7 @@
       "discount": 20,
       "description_short": "Băng: Polyvinyl Chloride, màu da\nGạc: vải không dệt màu trắng\nĐược chỉ định trong mỗi bao",
       "description": "Bên cạnh chuỗi Nhà thuốc tiện lợi, Pharmacity cho ra mắt những sản phẩm mang thương hiệu Pharmacity từ năm 2015 với các mặt hàng, hạng mục ngày càng đa dạng. Tính đến nay, Pharmacity đang sở hữu và phân phối hàng trăm mã sản phẩm mang thương hiệu riêng, thuộc các lĩnh vực chăm sóc sức khỏe, chăm sóc cá nhân, chăm sóc sắc đẹp, vitamin và thực phẩm chức năng cùng các sản phẩm tiện lợi.Với tiêu chí cam kết về chất lượng, giá cả phải chăng, phù hợp với nhu cầu của mọi khách hàng, trong thời gian tới Pharmacity tiếp tục phát triển thêm nhiều dòng sản phẩm mới mang thương hiệu riêng, hướng đến trở thành thương hiệu được người tiêu dùng trao trọn niềm tin và sức khỏe.",
+      "view": 1,
       "id": "JpjfEdMun"
     },
     {
@@ -38,6 +41,7 @@
       "discount": 10,
       "description_short": "GEL RỬA TAY HƯƠNG HOA OẢI HƯƠNG (90 ML & 320 ML)\n\nSản phẩm giúp làm sạch tay và kháng khuẩn",
       "description": "Bên cạnh chuỗi Nhà thuốc tiện lợi, Pharmacity cho ra mắt những sản phẩm mang thương hiệu Pharmacity từ năm 2015 với các mặt hàng, hạng mục ngày càng đa dạng. Tính đến nay, Pharmacity đang sở hữu và phân phối hàng trăm mã sản phẩm mang thương hiệu riêng, thuộc các lĩnh vực chăm sóc sức khỏe, chăm sóc cá nhân, chăm sóc sắc đẹp, vitamin và thực phẩm chức năng cùng các sản phẩm tiện lợi.Với tiêu chí cam kết về chất lượng, giá cả phải chăng, phù hợp với nhu cầu của mọi khách hàng, trong thời gian tới Pharmacity tiếp tục phát triển thêm nhiều dòng sản phẩm mới mang thương hiệu riêng, hướng đến trở thành thương hiệu được người tiêu dùng trao trọn niềm tin và sức khỏe.\n",
+      "view": null,
       "id": "UPsnRS3fty"
     },
     {
@@ -48,6 +52,7 @@
       "discount": 10,
       "description_short": "Thực phẩm bảo vệ sức khỏe hỗ trợ tạo máu Anmi Feron 3+ hỗ trợ bổ sung sắt, acid folic cho cơ thể, hỗ trợ quá trình tạo máu, giúp hạn chế biểu hiện và giảm nguy cơ thiếu máu do thiếu sắt, có thể dùng cho trẻ từ 6 tháng tuổi trở lên và người lớn.\n\n",
       "description": "Thực phẩm bảo vệ sức khỏe hỗ trợ tạo máu Anmi Feron 3+ hỗ trợ bổ sung sắt, acid folic cho cơ thể, hỗ trợ quá trình tạo máu, giúp hạn chế biểu hiện và giảm nguy cơ thiếu máu do thiếu sắt, có thể dùng cho trẻ từ 6 tháng tuổi trở lên và người lớn.\n",
+      "view": 1,
       "id": "Kt2gshlbL"
     },
     {
@@ -58,6 +63,7 @@
       "discount": 10,
       "description_short": "Hoạt chất:Ethanol, nướcCông dụng: Sát trùng ngoài da và các vật dụng y tếHình thức: Dung dịchThương hiệu: Pharmacity (Việt Nam)\n\n",
       "description": "Cồn 70 độ dùng để sát trùng ngoài da và các vật dụng y tế.\n\nThành phần: Ethanol, nước\n\nChỉ định (Thuốc dùng cho bệnh gì?)\nSát trùng ngoài da và các vật dụng y tế.\n\nChống chỉ định (Khi nào không nên dùng thuốc này?)\nKhông được uống, không được sử dụng ngoài mục địch khác ghi trên nhãn. Không dùng cho vết thương hở.",
+      "view": null,
       "id": "JapdjEM4un"
     },
     {
@@ -68,6 +74,7 @@
       "discount": 10,
       "description_short": "Nat C Yummy Gummyz bổ sung Vitamin C hằng ngày, giúp tăng cường sức đề kháng của cơ thể. Vị kẹo dẻo rất ngon miệng sẽ mang lại cảm giác thích thú đặc biệt đối với trẻ nhỏ.",
       "description": "Được thành lập vào năm 1982 tại Thái Lan, Mega Lifesciences tích cực tham gia vào việc giúp đỡ hàng triệu người có cơ hội tiếp cận các sản phẩm dinh dưỡng, thảo dược, thuốc kế toa và không kê toa an toàn, hiệu quả, chất lượng hàng đầu thế giới. Mega sản xuất các loại thuốc, sản phẩm dinh dưỡng và hàng tiêu dùng có chất lượng trên toàn thế giới. Tính đến thời điểm hiện tại, Mega đã có mặt ở gần 40 quốc gia thuộc Châu Á – Thái Bình Dương, Trung Đông, Châu Phi, Cộng đồng các quốc gia độc lập (CIS), Mỹ La-tinh và Châu Âu. Tại Việt Nam, Mega Wecare có mặt từ 1995, không ngừng mở rộng mạng lưới hoạt động và thị trường đồng thời đem đến những sản phẩm chất lượng, đáp ứng nhu cầu ngày càng cao của người tiêu dùng và giới chuyên môn.",
+      "view": 1,
       "id": "UPnsvRdSty"
     },
     {
@@ -78,6 +85,7 @@
       "discount": 10,
       "description_short": "Khẩu trang 4D Pharmacity được làm từ chất liệu vải tự nhiên, siêu mềm mịn. Sản phẩm có thiết kế 4D thông minh, vừa vặn với khuôn mặt. Đặc biệt, khẩu trang 4D Pharmacity có tác dụng làm mát, thiết kế đa chiều, không lem son môi cho nữ giới khi sử dụng.",
       "description": "Thành phần\nVải không dệt 100% PP, vải tai thun và vải lọc cao cấp.\nThanh nẹp đôi giúp định hình tốt khi đeo.\nVải SMS cao cấp với cấu tạo 4 lớp xếp chồng nhau.\n\nHướng dẫn sử dụng\nĐặt khẩu trang lên sống mũi và dùng tay chỉnh khẩu trang ôm khít khuôn mặt.\nĐeo dây đeo vào sau tai.\nĐiều chỉnh để che kín mũi, miệng và cằm.",
+      "view": 1,
       "id": "Ktg5hlabsL"
     },
     {
@@ -88,6 +96,7 @@
       "discount": 20,
       "description_short": "Khẩu trang 3M KF94 9013 màu trắng mềm mại, dễ thở, giúp làm giảm nguy cơ hít phải các hạt tiểu phân không chứa dầu như là bụi mịn, cát, khói bụi xe cộ, phấn hoa, chất ô nhiễm trong không khí, PM2.5, PM10, virus và các hạt tiểu phân gây hại khác trong không khí.",
       "description": "Công nghệ Lớp lọc tĩnh điện vượt trội từ 3M\nSử dụng lớp lọc tĩnh điện cao cấp (3M™ Advanced Electrostatic Media), khẩu trang không chỉ giúp lọc đi bụi bẩn và những hạt tiểu phân có trong không khí, mà vẫn đảm bảo người mang có thể thở được một cách dễ dàng.\n\nĐạt tiêu chuẩn KF94, lọc ít nhất 94% bụi mịn và hạt tiểu phân gây hại trong không khí\nKhi được sử dụng đúng theo hướng dẫn, khẩu trang lọc ít nhất 94% bụi mịn và các hạt tiểu phân trong không khí bao gồm virus, mầm bệnh trong không khí, bụi mịn PM 2.5 và các tác nhân gây dị ứng.",
+      "view": 1,
       "id": "JpjfE7dMun"
     },
     {
@@ -98,6 +107,7 @@
       "discount": 10,
       "description_short": "Nước uống MORE kết hợp các loại thảo dược quý từ thiên nhiên theo công thức truyền thống của người Thái Lan, giúp giảm và ổn định lượng đường trong máu, phòng ngừa biến chứng cho người bệnh tiểu đường.",
       "description": "Thành phần\nChiết xuất mướp đắng (khổ qua rừng); chiết xuất quả bầu nâu; chiết xuất me rừng; chiết xuất nghệ; đông trùng hạ thảo; cỏ ngọt Stevia\n\nCông dụng\n• Hỗ trợ cải thiện sức khỏe cho người tiểu đường nhờ:\n• Hỗ trợ giảm và ổn định đường huyết\n• Giảm nguy cơ biến chứng do tiểu đường\n\nĐối tượng sử dụng\n• Người bị tiểu đường, đường huyết cao.\n• Người bị mỡ máu, cholesterol cao.\n• Người mất ngủ, kém ăn, thường hay mệt mỏi.\n\nCách dùng và Liều dùng\nUống trực tiếp 1 - 2 lọ mỗi ngày, Dùng uống trực tiếp. Lắc nhẹ sản phẩm trước khi sử dụng. Tốt nhất uống vào buổi sáng hoặc buổi tối trước khi đi ngủ.",
+      "view": 1,
       "id": "UPsnRSft8y"
     },
     {
@@ -108,7 +118,57 @@
       "category": 2,
       "description_short": "Nước uống MORE kết hợp các loại thảo dược quý từ thiên nhiên theo công thức truyền thống của người Thái Lan, giúp giảm và ổn định lượng đường trong máu, phòng ngừa biến chứng cho người bệnh tiểu đường.",
       "description": "Thành phần\nChiết xuất mướp đắng (khổ qua rừng); chiết xuất quả bầu nâu; chiết xuất me rừng; chiết xuất nghệ; đông trùng hạ thảo; cỏ ngọt Stevia\n\nCông dụng\n• Hỗ trợ cải thiện sức khỏe cho người tiểu đường nhờ:\n• Hỗ trợ giảm và ổn định đường huyết\n• Giảm nguy cơ biến chứng do tiểu đường\n\nĐối tượng sử dụng\n• Người bị tiểu đường, đường huyết cao.",
+      "view": 1,
       "id": "3gulrGi"
+    },
+    {
+      "name": "Dự án bức ảnh thiên nhiên",
+      "imager": "http://res.cloudinary.com/vodinh/image/upload/v1637900749/htg0u34hbcktytzjzprs.jpg",
+      "price": 100000,
+      "discount": 9,
+      "category": 2,
+      "description_short": "ok3",
+      "description": "<ol><li><strong>Xinchaof cac ban</strong></li><li><strong>Tôi là võ đinh</strong></li><li><strong>Tạm biệt&nbsp;</strong></li></ol>",
+      "id": "QLsNbwF",
+      "view": null
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Thiết bị y tế",
+      "imgager": "http://localhost:3000/assets/images/icon_tab_1.png",
+      "active": true
+    },
+    {
+      "id": 2,
+      "name": "Thuốc trị ngoài da",
+      "imgager": "http://localhost:3000/assets/images/icon_tab_3.png",
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "Thuốc chữa bệnh",
+      "imgager": "http://localhost:3000/assets/images/icon_tab_5.png",
+      "active": true
+    },
+    {
+      "id": 4,
+      "name": "Dụng cụ y tế",
+      "imgager": "http://localhost:3000/assets/images/icon_tab_6.png",
+      "active": true
+    },
+    {
+      "id": 5,
+      "name": "Dụng cụ test covid",
+      "imgager": "http://localhost:3000/assets/images/icon_tab_4.png",
+      "active": true
+    },
+    {
+      "id": 6,
+      "name": "Thiết bị nội soi",
+      "imgager": "http://localhost:3000/assets/images/icon_tab_2.png",
+      "active": true
     }
   ],
   "users": [

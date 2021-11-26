@@ -4,7 +4,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 import { Link,useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { read,list } from "../../api/productAPI";
+import { read,list,update } from "../../api/productAPI";
 
 
 export default function ProductDetail () {
@@ -28,6 +28,13 @@ export default function ProductDetail () {
                 var newArr = res.data.filter((item) => item.id!==response.data.id)
                 setRelatedProducts(newArr);
             });
+            setTimeout(() => {
+                const dataPatch = {
+                    id: id,
+                    view: ++response.dataview,
+                }
+                update(dataPatch);
+            }, 5000);
         });
     }, [id]);
     function formatCash(str) {
@@ -78,7 +85,7 @@ export default function ProductDetail () {
                     </div>
                     <div className="container">
                         <h4>Thông tin chi tiết</h4>
-                        <p>{product.description}</p>
+                        <p dangerouslySetInnerHTML={{ __html: product.description }} />
                     </div>
                 </div>
                 <h4>Các sản phẩm liên quan</h4>

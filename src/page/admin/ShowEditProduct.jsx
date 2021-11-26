@@ -4,13 +4,16 @@ import { useForm } from "react-hook-form";
 import { useEffect,useState} from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import { Table,Button,FormControl,Form,Container,FloatingLabel } from "react-bootstrap";
+import { CKEditor } from '@ckeditor/ckeditor5-react';
 
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
 const ShowEditProduct = ({post}) => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { id } = useParams();
     const [product, setProduct] = useState({});
+    const [textarea, setTextarea] = useState("");
 
     let navigate = useNavigate();
     const onUpdate = (data) => {
@@ -57,10 +60,12 @@ const ShowEditProduct = ({post}) => {
                     <Form.Control as="textarea" placeholder="Nhập mô tả ngắn" {...register("description_short", { required: true })} defaultValue={product.description_short}/>
                     {errors.description_short && <span className="font-italic text-danger error-empty-form">Vui lòng nhập mô tả ngắn</span>}
                 </FloatingLabel>
-                <FloatingLabel controlId="floatingTextarea2" label="Mô tả chi tiết">
-                    <Form.Control as="textarea" className="val-desc-short" {...register("description", { required: true })}  defaultValue={product.description} placeholder="Nhập mô tả chi tiết" style={{ height: '100px' }} />
-                    {errors.description && <span className="font-italic text-danger error-empty-form">Vui lòng nhập mô tả chi tiết</span>} 
-                </FloatingLabel>
+                <Form.Group className="mb-1" id="form-add" controlId="formBasicEmail">
+                    <Form.Label id="">Mô tả chi tiết</Form.Label>
+                    <CKEditor editor={ ClassicEditor } data={product.description}onChange={ ( event, editor ) => {
+                        setTextarea(editor.getData());
+                    }}/>
+                </Form.Group>
                 <div className="d-flex justify-content-center align-items-center mt-3 grid-collum-bnt">
                     <Button variant="primary" type="submit" >
                         Cập nhật

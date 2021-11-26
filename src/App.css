@@ -105,7 +105,7 @@ header .login_contact ul {
   padding: 4px 0;
   top: 40px;
   right: 0;
-  width: 100px;
+  width: 135px;
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -739,16 +739,16 @@ header .cart sub {
 }
 
 .service-tab-item {
-  max-width: 170px;
-  height: 170px;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  background-color: #fff;
-  align-items: center;
-  border-radius: 10px;
-  transition: 0.4s;
-  cursor: pointer;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    align-items: center;
+    border-radius: 10px;
+    transition: 0.4s;
+    cursor: pointer;
+    min-width: 180px;
+    height: 160px;
 }
 
 .service-tab-item span {
@@ -1053,7 +1053,7 @@ footer p {
   z-index: 3;
   padding: 10px 10px 0 10px;
   border-radius: 20px 0;
-  min-width: 230px;
+  min-width: 200px;
   border-left: 1px solid #bdbdbd;
 }
 

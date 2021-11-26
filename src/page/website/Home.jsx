@@ -1,29 +1,28 @@
-import { Carousel } from 'antd';
+import { Carousel as CarouselSlider } from 'antd';
 import { Link } from 'react-router-dom';
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import { list } from "../../api/productAPI";
-import { Pagination} from 'antd';
+// import { Pagination} from 'antd';
+import Carousel  from 'react-elastic-carousel';
+export default function Home({products,categories}) {
+  const breakPoints = [
+    { width: 1, itemsToShow: 2 },
+    { width: 550, itemsToShow: 4, itemsToScroll: 2 },
+    { width: 768, itemsToShow: 5 },
+    { width: 1200, itemsToShow: 6 }
+  ];
+  const [dataCategories,setDataCategories] = useState(categories.filter(item => item.active));
+  // const [dataFilter, setDataFilter] = useState(products);
 
-export default function Home({products}) {
-
-  const [toggleState,setToggleState] = useState(1);
-  const [dataSearch, setDataSearch] = useState(products);
-
-  const toggleTab = (index) => {
-    setToggleState(index);
-  }
+  useEffect(() => {
+    setDataCategories(categories.filter(item => item.active));
+  },[categories])
   function formatCash(str) {
     str = `${str}`;
       return str.split('').reverse().reduce((prev, next, index) => {
           return ((index % 3) ? next : (next + ',')) + prev
       })
   }
-  function onChageSearch(e) {
-    var params = "q="+e.target.value;
-    list(params).then((response) =>setDataSearch(response.data))
-  }
-  
-
   const contentStyle = {
     height: '500px',
     objectFit: 'cover',
@@ -37,7 +36,7 @@ export default function Home({products}) {
     
     <main>
     <div className='banner' >
-      <Carousel effect="scrollx" autoplay="true">
+      <CarouselSlider effect="scrollx" autoplay="true">
         <div>
           <img style={contentStyle} src="https://s3-ap-southeast-1.amazonaws.com/pharmacity-ecm-asm-dev/banner-thang-1021/banner-921x280.webp" alt='' />
         </div>
@@ -50,7 +49,7 @@ export default function Home({products}) {
         <div>
           <img style={contentStyle} src="https://s3-ap-southeast-1.amazonaws.com/pharmacity-ecm-asm-dev/banner-thang-11/sp1k-banner-112021-01.webp" alt='' />
         </div>
-      </Carousel>
+      </CarouselSlider>
     </div>
     <div className='content'>
       <div className='box-introduces'>
@@ -131,31 +130,58 @@ export default function Home({products}) {
             <h2>Danh mục sản phẩm</h2>
             <div className='generality-title-decor'></div>
           </div>
-          <div className='row services-tab'>
-            <Link to={"/loai-san-pham/1"} className="col-md-4 col-lg-2 service-tab-item">
-                <img src={process.env.PUBLIC_URL + '/assets/images/icon_tab_1.png'} alt='' />
-                <span>Thuốc trị ngoài da</span>
-            </Link>
-            <Link to={"/loai-san-pham/2"} className="col-md-4 col-lg-2 service-tab-item">
-              <img src={process.env.PUBLIC_URL + '/assets/images/icon_tab_2.png'} alt='' />
-              <span>Thuốc chữa bệnh</span>
-            </Link>
-            <Link to={"/loai-san-pham/3"} className="col-md-4 col-lg-2 service-tab-item">
-              <img src={process.env.PUBLIC_URL + '/assets/images/icon_tab_3.png'} alt='' />
-              <span>Thiết bị nội soi</span>
-            </Link>
-            <Link to={"/loai-san-pham/4"} className="col-md-4 col-lg-2 service-tab-item">
-              <img src={process.env.PUBLIC_URL + '/assets/images/icon_tab_4.png'} alt='' />
-              <span>Dụng cụ test covid</span>
-            </Link>
-            <Link to={"/loai-san-pham/5"} className="col-md-4 col-lg-2 service-tab-item">
-              <img src={process.env.PUBLIC_URL + '/assets/images/icon_tab_5.png'} alt='' />
-              <span>Xét nghiệm di truyền</span>
-            </Link>
-            <Link to={"/loai-san-pham/6"} className="col-md-4 col-lg-2 service-tab-item">
-              <img src={process.env.PUBLIC_URL + '/assets/images/icon_tab_6.png'} alt='' />
-              <span>Tế bào học</span>
-            </Link>
+          <Carousel breakPoints={breakPoints} enableSwipe={true}>
+            {
+              dataCategories.map((data,index) => {
+                return (
+                  <Link to={"/loai-san-pham/"+data.id} className="col-md-4 col-lg-2 service-tab-item">
+                      <img src={data.imgager} alt='' />
+                      <span>{data.name}</span>
+                  </Link>
+                )
+              })
+            }
+          </Carousel>
+        </div>
+      </div>
+      <div className='box-product'>
+        <div className='container'>
+          <div className='box-product-title'>
+            <div className='box-product-title-primary'>
+              <h1>Sản phẩm nổi bật</h1>
+            </div>
+            <div className='box-product-title-decor'></div>
+          </div>
+          <div className='mt-3 box-product-showroom row'>
+            <Carousel breakPoints={breakPoints} enableAutoPlay={true} enableMouseSwipe={true} >
+                {
+                  products.map((data,index) => {
+                    return (
+                      <div className="product-item col-lg-3 col-md-2" key={index}>
+                          <div className="product-image">
+                              <Link to={"/product/"+data.id}>
+                                  <img className="img-primary" src={data.imager}/>
+                              </Link>
+                              <div className="icon-on-image-product">
+                                <Link to={"/product/"+data.id}>
+                                  <img className="icon-gif-cart" src={process.env.PUBLIC_URL + '/assets/images/addToCart3.gif'} alt="" />
+                                </Link>
+                              </div>
+                          </div>
+                          <div className="product-information">
+                            <Link to={"/product/"+data.id}>
+                                <p>{data.name}</p>
+                                <div className="box-price">
+                                    <span className="price-primary">{formatCash(data.price-(data.price*data.discount/100))} đ</span>
+                                    <span className="price-sub">{formatCash(data.price)} đ</span>
+                                </div>
+                            </Link>
+                          </div>
+                          <span className="product-sale">-{formatCash(data.discount)} %</span>
+                      </div>);
+                  })
+                }
+              </Carousel>
           </div>
         </div>
       </div>
@@ -170,39 +196,36 @@ export default function Home({products}) {
             </div>
             <div className='box-product-title-decor'></div>
           </div>
-          <div className='box-product-search'>
-            <form action=''>
-              <input type='text' placeholder='Tìm sản phẩm khác...' onInput={(e) => onChageSearch(e)}/>
-              <button><i className='fas fa-search'></i></button>
-            </form>
-          </div>
-          <div className='box-product-showroom row'>
+          <div className='mt-4 box-product-showroom row'>
             {
-              dataSearch.length > 0?
-              dataSearch.map((data,index) => {
-                return (
-                  <div className="product-item col-lg-3 col-md-2" key={index}>
-                      <div className="product-image">
-                          <Link to={"/product/"+data.id}>
-                              <img className="img-primary" src={data.imager}/>
-                          </Link>
-                          <div className="icon-on-image-product">
+              products.length > 0?
+              products.map((data,index) => {
+                if(index<8) {
+                  return (
+                    <div className="product-item col-lg-3 col-md-2" key={index}>
+                        <div className="product-image">
                             <Link to={"/product/"+data.id}>
-                              <img className="icon-gif-cart" src={process.env.PUBLIC_URL + '/assets/images/addToCart3.gif'} alt="" />
+                                <img className="img-primary" src={data.imager}/>
                             </Link>
-                          </div>
-                      </div>
-                      <div className="product-information">
-                        <Link to={"/product/"+data.id}>
-                            <p>{data.name}</p>
-                            <div className="box-price">
-                                <span className="price-primary">{formatCash(data.price-(data.price*data.discount/100))} đ</span>
-                                <span className="price-sub">{formatCash(data.price)} đ</span>
+                            <div className="icon-on-image-product">
+                              <Link to={"/product/"+data.id}>
+                                <img className="icon-gif-cart" src={process.env.PUBLIC_URL + '/assets/images/addToCart3.gif'} alt="" />
+                              </Link>
                             </div>
-                        </Link>
-                      </div>
-                      <span className="product-sale">-{formatCash(data.discount)} %</span>
-                  </div>);
+                        </div>
+                        <div className="product-information">
+                          <Link to={"/product/"+data.id}>
+                              <p>{data.name}</p>
+                              <div className="box-price">
+                                  <span className="price-primary">{formatCash(data.price-(data.price*data.discount/100))} đ</span>
+                                  <span className="price-sub">{formatCash(data.price)} đ</span>
+                              </div>
+                          </Link>
+                        </div>
+                        <span className="product-sale">-{formatCash(data.discount)} %</span>
+                    </div>
+                  );
+                }
               })
               : <p className="data_sreach_empty">Không tìm thấy sản phẩm nào !</p>
             }

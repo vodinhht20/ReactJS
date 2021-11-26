@@ -1,14 +1,17 @@
 import { Button,Form,Container,FloatingLabel } from "react-bootstrap";
 import { Link,useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
 import UploadImage from "../../components/UploadImage";
 import 'react-toastify/dist/ReactToastify.css';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const CreateProduct = ({post}) => {
     let navigate = useNavigate();
     const {register, handleSubmit, formState: { errors}} = useForm();
-
+    const [textarea, setTextarea] = useState("");
     const onSubmitCreate = async (data) => {
         data.price =  parseInt(data.price);
         data.discount =  parseInt(data.discount);
@@ -16,7 +19,7 @@ const CreateProduct = ({post}) => {
         await UploadImage(data.imager[0]).then((response) => {
             data.imager = response.url;
         });
-        post(data);
+        post({...data,description: textarea});
         toast.success("Tạo sản phẩm thành công !",{
             onClose: () => navigate("/admin/products/", { replace: true }),
             autoClose: 3000
@@ -65,10 +68,12 @@ const CreateProduct = ({post}) => {
                     <Form.Control as="textarea" {...register("description_short", { required: true, maxLength: 200 })} placeholder="Nhập mô tả ngắn" />
                     {errors.description_short && <span className="font-italic text-danger error-empty-form">Vui lòng nhập mô tả ngắn</span>}
                 </FloatingLabel>
-                <FloatingLabel controlId="floatingTextarea2" label="Mô tả chi tiết">
-                    <Form.Control as="textarea" {...register("description", { required: true, maxLength: 500 })} placeholder="Nhập mô tả chi tiết" style={{ height: '100px' }} />
-                    {errors.description && <span className="font-italic text-danger error-empty-form">Vui lòng nhập mô tả chi tiết</span>} 
-                </FloatingLabel>
+                <Form.Group className="mb-1" id="form-add" controlId="formBasicEmail">
+                    <Form.Label id="">Mô tả chi tiết</Form.Label>
+                    <CKEditor editor={ ClassicEditor } onChange={ ( event, editor ) => {
+                        setTextarea(editor.getData());
+                    }}/>
+                </Form.Group>
                 <Button variant="primary" type="submit" className="mt-3 bnt-submit-form">
                     Thêm mới
                 </Button>

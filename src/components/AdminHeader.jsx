@@ -46,6 +46,13 @@ export default function AdminHeader({auth, setAuth}) {
             <span className="tooltip">Sản Phẩm</span>
           </li>
           <li>
+            <Link to={"/admin/category"} >
+              <i class='bx bxs-category'></i>
+              <span className="links_name">Loại Sản Phẩm</span>
+            </Link>
+            <span className="tooltip">Loại Sản Phẩm</span>
+          </li>
+          <li>
             <Link to={"/admin/users"} >
               <i className="bx bx-user"></i>
               <span className="links_name">User</span>

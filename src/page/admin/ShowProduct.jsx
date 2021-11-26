@@ -1,4 +1,4 @@
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined, SearchOutlined } from '@ant-design/icons';
 import { faSort,faSortDown,faSortUp,faSortAlphaDown,faSortAlphaUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
@@ -6,13 +6,12 @@ import { list } from "../../api/productAPI";
 import { useState, useEffect } from "react";
 import {Button, Container, Form } from "react-bootstrap";
 import { ToastContainer } from "react-toastify";
-import { Pagination,Table } from 'antd';
+import { Pagination,Table,Input,Tooltip,Button as ButtonAntd } from 'antd';
 
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
-
-const AdminProductShow = ({ products, onRemove }) => {
+const ShowProduct = ({ products, onRemove }) => {
 
   const [filter, setFilter] = useState(products);
 
@@ -51,7 +50,34 @@ const AdminProductShow = ({ products, onRemove }) => {
     {
       key: "1",
       title: "Tên sản phẩm",
-      dataIndex: "name"
+      dataIndex: "name",
+      filterDropdown: ({setSelectedKeys,selectedKeys,confirm}) => {
+        return (
+          <div style={{display: "flex"}}>
+            <Input autoFocus placeholder="Nhập từ khóa"
+              value={selectedKeys[0]}
+              onChange={(e) => {
+                setSelectedKeys(e.target.value ? [e.target.value] : []);
+              }}
+              onPressEnter={() => {
+                confirm();
+              }}
+              onBlur={() => {
+                confirm();
+              }}
+            ></Input>
+            {/* <Tooltip title="search"> */}
+              <ButtonAntd type="primary" onClick={() => confirm()} shape="circle" icon={<SearchOutlined />} size="large" />
+            {/* </Tooltip> */}
+          </div>
+        );
+      },
+      filterIcon: () => {
+        return <SearchOutlined/>;
+      },
+      onFilter: (value,record) => {
+        return record.name.toLowerCase().includes(value.toLowerCase());
+      }
     }, {
       key: "2",
       title: "Hình ảnh",
@@ -146,4 +172,4 @@ const AdminProductShow = ({ products, onRemove }) => {
     </Container>
   );
 };
-export default AdminProductShow;
+export default ShowProduct;
