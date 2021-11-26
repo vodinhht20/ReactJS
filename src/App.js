@@ -91,8 +91,8 @@ return (
           <Route index element={<Navigate to="dashboard" />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="products" element={<ShowProduct products={products} onRemove={onHandleRemove} />} />
-          <Route path="product/create" element={<CreateProduct post={onHandleAdd}/>} />
-          <Route path="product/:id/edit" element={<ShowEditProduct post={onHandleUpDate}/>} />
+          <Route path="product/create" element={<CreateProduct post={onHandleAdd} categories={categories}/>} />
+          <Route path="product/:id/edit" element={<ShowEditProduct post={onHandleUpDate} categories={categories}/>}/>
           <Route path="category" element={<ShowCategory categories={categories} setCategories={setCategories} />} />
           <Route path="category/create" element={<CreateCate categories={categories} setCategories={setCategories} />} />
           <Route path="category/:id/edit" element={<ShowEditCategory categories={categories} setCategories={setCategories} />} />

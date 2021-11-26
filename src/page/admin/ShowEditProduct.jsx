@@ -9,17 +9,16 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
-const ShowEditProduct = ({post}) => {
+const ShowEditProduct = ({post, categories}) => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { id } = useParams();
     const [product, setProduct] = useState({});
     const [textarea, setTextarea] = useState("");
-
     let navigate = useNavigate();
     const onUpdate = (data) => {
         data.price = parseInt(data.price);
         data.discount = parseInt(data.discount);
-        post({ id, ...data });
+        post({ id, ...data,description: textarea });
     };
     useEffect(() => {
         read(id).then((response) => {
@@ -52,6 +51,16 @@ const ShowEditProduct = ({post}) => {
                     <Form.Label id="">Giảm giá</Form.Label>
                     <Form.Control type="number" className="val-discount" {...register("discount", { required: true })} defaultValue={product.discount} placeholder="Nhập tên sản phẩm" />
                     {errors.discount && <span className="font-italic text-danger error-empty-form">Vui lòng nhập giảm giá</span>}
+                </Form.Group>
+                <Form.Group className="mb-1" id="form-add" controlId="formBasicEmail">
+                    <Form.Label id="">Loại sản phẩm</Form.Label>
+                    <Form.Select {...register("category", { required: true})} defaultValue={product.category}>
+                        <option value> ---- Lựa chọn loại sản phẩm -----</option>
+                        {categories.map(item => {
+                            return (<option value={item.id}>{item.name}</option>)
+                        })}
+                    </Form.Select>
+                    {errors.category && <span className="font-italic text-danger error-empty-form">Vui chọn loại sản phẩm</span>}
                 </Form.Group>
                 <Form.Group className="mb-3" id="form-add" controlId="formBasicEmail">
                     <Form.Label id="">Thông tin sản phẩm</Form.Label>

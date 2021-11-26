@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-const CreateProduct = ({post}) => {
+const CreateProduct = ({post,categories}) => {
     let navigate = useNavigate();
     const {register, handleSubmit, formState: { errors}} = useForm();
     const [textarea, setTextarea] = useState("");
@@ -19,7 +19,7 @@ const CreateProduct = ({post}) => {
         await UploadImage(data.imager[0]).then((response) => {
             data.imager = response.url;
         });
-        post({...data,description: textarea});
+        post({...data,description: textarea,view: 1});
         toast.success("Tạo sản phẩm thành công !",{
             onClose: () => navigate("/admin/products/", { replace: true }),
             autoClose: 3000
@@ -54,10 +54,9 @@ const CreateProduct = ({post}) => {
                     <Form.Label id="">Loại sản phẩm</Form.Label>
                     <Form.Select {...register("category", { required: true})}>
                         <option value> ---- Lựa chọn loại sản phẩm -----</option>
-                        <option value="1">Thiết bị y tế</option>
-                        <option value="2">Thuốc trị ngoài da</option>
-                        <option value="4">Dụng cụ y tế</option>
-                        <option value="5">Thiết bị khác</option>
+                        {categories.map(item => {
+                            return (<option value={item.id}>{item.name}</option>)
+                        })}
                     </Form.Select>
                     {errors.category && <span className="font-italic text-danger error-empty-form">Vui chọn loại sản phẩm</span>}
                 </Form.Group>

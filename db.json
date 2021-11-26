@@ -122,15 +122,14 @@
       "id": "3gulrGi"
     },
     {
-      "name": "Dự án bức ảnh thiên nhiên",
-      "imager": "http://res.cloudinary.com/vodinh/image/upload/v1637900749/htg0u34hbcktytzjzprs.jpg",
+      "name": "Bột ngũ cốc Nutri Blend ",
+      "imager": "http://res.cloudinary.com/vodinh/image/upload/v1637903911/f9xoduqfohai9wvylnov.webp",
       "price": 100000,
-      "discount": 9,
-      "category": 2,
-      "description_short": "ok3",
-      "description": "<ol><li><strong>Xinchaof cac ban</strong></li><li><strong>Tôi là võ đinh</strong></li><li><strong>Tạm biệt&nbsp;</strong></li></ol>",
-      "id": "QLsNbwF",
-      "view": null
+      "discount": 5,
+      "category": 4,
+      "description_short": "bột ngũ cốc Nutri Blend được sản xuất từ nguyên liệu xuất xứ Thái Lan như gạo lứt, bắp, đậu nành, tảo Spirulina",
+      "description": "<p><strong>Đối tượng sử dụng:</strong>&nbsp;Người lớn và trẻ em 2 tuổi trở lên</p><p><strong>Thành phần:</strong><br>Gạo lứt, Bắp, Đậu nành, Tảo Spirulina</p><p><strong>Công dụng:</strong><br>Giúp bồi bổ sức khỏe<br>Tiêu hóa tốt<br>Nâng cao sức đề kháng<br>Hỗ trợ miễn dịch</p>",
+      "id": "jle_iNM"
     }
   ],
   "categories": [
