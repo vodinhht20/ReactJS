@@ -34,8 +34,9 @@ const ShowEditProduct = ({post, categories}) => {
                 <h4 className="text-center mt-3 mb-3">{product.name}</h4>
                 <Form.Group className="mb-3" id="form-add" controlId="formBasicEmail">
                     <Form.Label id="">Tên sản phẩm</Form.Label>
-                    <Form.Control type="text" className="val-name" {...register("name", { required: true })} defaultValue={product.name} placeholder="Nhập tên sản phẩm" />
-                    {errors.name && <span className="font-italic text-danger error-empty-form">Vui lòng nhập tên sản phẩm</span>}
+                    <Form.Control type="text" className="val-name" {...register("name", { required: true, maxLength: 100 })} defaultValue={product.name} placeholder="Nhập tên sản phẩm" />
+                    {errors.name?.type === 'required' && <span className="font-italic text-danger error-empty-form">Tên sản phẩm không được để trống</span>}
+                    {errors.name?.type === 'maxLength' && <span className="font-italic text-danger error-empty-form">Tên sản phẩm không được quá 100 ký tự</span>}
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Hình ảnh</Form.Label>
@@ -44,13 +45,16 @@ const ShowEditProduct = ({post, categories}) => {
                 </Form.Group>
                 <Form.Group className="mb-3" id="form-add" controlId="formBasicEmail">
                     <Form.Label id="">Đơn giá </Form.Label>
-                    <Form.Control type="number" className="val-price" {...register("price", { required: true })} defaultValue={product.price} placeholder="Nhập tên sản phẩm" />
-                    {errors.price && <span className="font-italic text-danger error-empty-form">Vui lòng nhập đơn giá</span>}
+                    <Form.Control type="number" className="val-price" {...register("price", { required: true,min: 0 })} defaultValue={product.price} placeholder="Nhập đơn giá" />
+                    {errors.price?.type === 'required'  && <span className="font-italic text-danger error-empty-form">Vui lòng nhập đơn giá</span>}
+                    {errors.price?.type === 'min'  && <span className="font-italic text-danger error-empty-form">Không được nhập số âm</span>}
                 </Form.Group>
                 <Form.Group className="mb-3" id="form-add" controlId="formBasicEmail">
                     <Form.Label id="">Giảm giá</Form.Label>
-                    <Form.Control type="number" className="val-discount" {...register("discount", { required: true })} defaultValue={product.discount} placeholder="Nhập tên sản phẩm" />
-                    {errors.discount && <span className="font-italic text-danger error-empty-form">Vui lòng nhập giảm giá</span>}
+                    <Form.Control type="number" className="val-discount" {...register("discount", { required: true,min: 0,max:100 })} defaultValue={product.discount} placeholder="Nhập tên sản phẩm" />
+                    {errors.discount?.type === 'required'  && <span className="font-italic text-danger error-empty-form">vui lòng nhập đủ giảm giá</span>}
+                    {errors.discount?.type === 'min'  && <span className="font-italic text-danger error-empty-form">Giảm giá phải lớn hơn 0</span>}
+                    {errors.discount?.type === 'max'  && <span className="font-italic text-danger error-empty-form">Giảm giá không được quá 100 %</span>}
                 </Form.Group>
                 <Form.Group className="mb-1" id="form-add" controlId="formBasicEmail">
                     <Form.Label id="">Loại sản phẩm</Form.Label>
@@ -66,8 +70,9 @@ const ShowEditProduct = ({post, categories}) => {
                     <Form.Label id="">Thông tin sản phẩm</Form.Label>
                 </Form.Group>
                 <FloatingLabel controlId="floatingTextarea" label="Mô tả ngắn" className="mb-3">
-                    <Form.Control as="textarea" placeholder="Nhập mô tả ngắn" {...register("description_short", { required: true })} defaultValue={product.description_short}/>
-                    {errors.description_short && <span className="font-italic text-danger error-empty-form">Vui lòng nhập mô tả ngắn</span>}
+                    <Form.Control as="textarea" placeholder="Nhập mô tả ngắn" {...register("description_short", { required: true, maxLength: 500 })} defaultValue={product.description_short}/>
+                    {errors.description_short?.type === 'required' && <span className="font-italic text-danger error-empty-form">Vui lòng nhập mô tả ngắn</span>}
+                    {errors.description_short?.type === 'maxLength' && <span className="font-italic text-danger error-empty-form">Mô tả ngắn không được quá 500 ký tự</span>}
                 </FloatingLabel>
                 <Form.Group className="mb-1" id="form-add" controlId="formBasicEmail">
                     <Form.Label id="">Mô tả chi tiết</Form.Label>

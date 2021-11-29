@@ -12,16 +12,17 @@ export default function Home({products,categories}) {
     { width: 1200, itemsToShow: 6 }
   ];
   const [dataCategories,setDataCategories] = useState(categories.filter(item => item.active));
-  // const [dataFilter, setDataFilter] = useState(products);
+  const [dataProducts, SetDataProducts] = useState(products);
 
   useEffect(() => {
     setDataCategories(categories.filter(item => item.active));
+    SetDataProducts(products);
   },[categories])
   function formatCash(str) {
     str = `${str}`;
       return str.split('').reverse().reduce((prev, next, index) => {
-          return ((index % 3) ? next : (next + ',')) + prev
-      })
+        return ((index % 3) ? next : (next + ',')) + prev
+    })
   }
   const contentStyle = {
     height: '500px',
@@ -30,7 +31,6 @@ export default function Home({products,categories}) {
     lineHeight: '160px',
     textAlign: 'center',
     background: '#364d79',
-    
   };
   return (
     
@@ -155,7 +155,7 @@ export default function Home({products,categories}) {
           <div className='mt-3 box-product-showroom row'>
             <Carousel breakPoints={breakPoints} enableAutoPlay={true} enableMouseSwipe={true} >
                 {
-                  products.map((data,index) => {
+                  dataProducts.map((data,index) => {
                     return (
                       <div className="product-item col-lg-3 col-md-2" key={index}>
                           <div className="product-image">
@@ -198,8 +198,8 @@ export default function Home({products,categories}) {
           </div>
           <div className='mt-4 box-product-showroom row'>
             {
-              products.length > 0?
-              products.map((data,index) => {
+              dataProducts.length > 0?
+              dataProducts.map((data,index) => {
                 if(index<8) {
                   return (
                     <div className="product-item col-lg-3 col-md-2" key={index}>

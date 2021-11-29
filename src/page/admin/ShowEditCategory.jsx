@@ -47,8 +47,9 @@ const ShowEditCategory = ({ categories, setCategories}) => {
                 <h4 className="text-center mt-3 mb-3">{categoryData.name}</h4>
                 <Form.Group className="mb-3" id="form-add" controlId="formBasicEmail">
                     <Form.Label id="">Tên loại sản phẩm</Form.Label>
-                    <Form.Control type="text" className="val-name" {...register("name", { required: true })} defaultValue={categoryData.name} placeholder="Nhập tên sản phẩm" />
-                    {errors.name && <span className="font-italic text-danger error-empty-form">Vui lòng nhập tên loại sản phẩm</span>}
+                    <Form.Control type="text" className="val-name" {...register("name", { required: true, maxLength: 100 })} defaultValue={categoryData.name} placeholder="Nhập tên sản phẩm" />
+                    {errors.name?.type === 'required' && <span className="font-italic text-danger error-empty-form">Tên loại sản phẩm không được để trống</span>}
+                    {errors.name?.type === 'maxLength' && <span className="font-italic text-danger error-empty-form">Tên loại sản phẩm không được quá 100 ký tự</span>}
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Hình ảnh</Form.Label>

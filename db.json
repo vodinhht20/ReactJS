@@ -117,8 +117,8 @@
       "discount": 10,
       "category": 2,
       "description_short": "Nước uống MORE kết hợp các loại thảo dược quý từ thiên nhiên theo công thức truyền thống của người Thái Lan, giúp giảm và ổn định lượng đường trong máu, phòng ngừa biến chứng cho người bệnh tiểu đường.",
-      "description": "Thành phần\nChiết xuất mướp đắng (khổ qua rừng); chiết xuất quả bầu nâu; chiết xuất me rừng; chiết xuất nghệ; đông trùng hạ thảo; cỏ ngọt Stevia\n\nCông dụng\n• Hỗ trợ cải thiện sức khỏe cho người tiểu đường nhờ:\n• Hỗ trợ giảm và ổn định đường huyết\n• Giảm nguy cơ biến chứng do tiểu đường\n\nĐối tượng sử dụng\n• Người bị tiểu đường, đường huyết cao.",
-      "view": 1,
+      "description": "<p>Thành phần Chiết xuất mướp đắng (khổ qua rừng); chiết xuất quả bầu nâu; chiết xuất me rừng; chiết xuất nghệ; đông trùng hạ thảo; cỏ ngọt Stevia Công dụng • Hỗ trợ cải thiện sức khỏe cho người tiểu đường nhờ: • Hỗ trợ giảm và ổn định đường huyết • Giảm nguy cơ biến chứng do tiểu đường Đối tượng sử dụng • Người bị tiểu đường, đường huyết cao.</p>",
+      "view": null,
       "id": "3gulrGi"
     },
     {
@@ -130,6 +130,17 @@
       "description_short": "bột ngũ cốc Nutri Blend được sản xuất từ nguyên liệu xuất xứ Thái Lan như gạo lứt, bắp, đậu nành, tảo Spirulina",
       "description": "<p><strong>Đối tượng sử dụng:</strong>&nbsp;Người lớn và trẻ em 2 tuổi trở lên</p><p><strong>Thành phần:</strong><br>Gạo lứt, Bắp, Đậu nành, Tảo Spirulina</p><p><strong>Công dụng:</strong><br>Giúp bồi bổ sức khỏe<br>Tiêu hóa tốt<br>Nâng cao sức đề kháng<br>Hỗ trợ miễn dịch</p>",
       "id": "jle_iNM"
+    },
+    {
+      "name": "Khẩu Trang Y Tế N95",
+      "imager": "http://res.cloudinary.com/vodinh/image/upload/v1638173917/sh2kx03eg3kxn70reodx.jpg",
+      "price": 100000,
+      "discount": 15,
+      "category": 1,
+      "description_short": "xin chào các bạn",
+      "description": "<ol><li><strong>xin chào các bạn</strong></li><li><strong>xin chào các bạn</strong></li></ol>",
+      "view": 1,
+      "id": "wEJOoWZ"
     }
   ],
   "categories": [

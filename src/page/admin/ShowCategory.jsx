@@ -55,7 +55,7 @@ const ShowCategory = ({ categories,setCategories}) => {
       }
     }, {
       key: "3",
-      title: "Trạng thái",
+      title: "Navbar Home",
       render: (record) => {
           return <Switch checkedChildren="Bật" onClick={() => handleClick(record.id,record.active)} unCheckedChildren="Tắt" checked={record.active} />
       },
