@@ -1,17 +1,6 @@
 {
   "products": [
     {
-      "name": "Bộ xét nghiệm nhanh COVID-19",
-      "imager": "https://data-service.pharmacity.io/pmc-upload-media/productionvn/pmc-ecm-core/products/P22589_2.jpg",
-      "category": 2,
-      "price": 100000,
-      "discount": 10,
-      "description_short": "adad ngon",
-      "description": "ádsda",
-      "view": 1,
-      "id": "UPnsRdSty"
-    },
-    {
       "name": "Máy đo huyết áp cổ tay Đức",
       "imager": "https://bizweb.dktcdn.net/thumb/large/100/382/483/products/may-do-huyet-ap-co-tay-beurer-bc30-6b297beb-3565-4c5e-bfbe-1c34b167f35d.jpg?v=1585510030550",
       "category": 4,
@@ -30,7 +19,7 @@
       "discount": 20,
       "description_short": "Băng: Polyvinyl Chloride, màu da\nGạc: vải không dệt màu trắng\nĐược chỉ định trong mỗi bao",
       "description": "Bên cạnh chuỗi Nhà thuốc tiện lợi, Pharmacity cho ra mắt những sản phẩm mang thương hiệu Pharmacity từ năm 2015 với các mặt hàng, hạng mục ngày càng đa dạng. Tính đến nay, Pharmacity đang sở hữu và phân phối hàng trăm mã sản phẩm mang thương hiệu riêng, thuộc các lĩnh vực chăm sóc sức khỏe, chăm sóc cá nhân, chăm sóc sắc đẹp, vitamin và thực phẩm chức năng cùng các sản phẩm tiện lợi.Với tiêu chí cam kết về chất lượng, giá cả phải chăng, phù hợp với nhu cầu của mọi khách hàng, trong thời gian tới Pharmacity tiếp tục phát triển thêm nhiều dòng sản phẩm mới mang thương hiệu riêng, hướng đến trở thành thương hiệu được người tiêu dùng trao trọn niềm tin và sức khỏe.",
-      "view": 1,
+      "view": null,
       "id": "JpjfEdMun"
     },
     {
@@ -107,7 +96,7 @@
       "discount": 10,
       "description_short": "Nước uống MORE kết hợp các loại thảo dược quý từ thiên nhiên theo công thức truyền thống của người Thái Lan, giúp giảm và ổn định lượng đường trong máu, phòng ngừa biến chứng cho người bệnh tiểu đường.",
       "description": "Thành phần\nChiết xuất mướp đắng (khổ qua rừng); chiết xuất quả bầu nâu; chiết xuất me rừng; chiết xuất nghệ; đông trùng hạ thảo; cỏ ngọt Stevia\n\nCông dụng\n• Hỗ trợ cải thiện sức khỏe cho người tiểu đường nhờ:\n• Hỗ trợ giảm và ổn định đường huyết\n• Giảm nguy cơ biến chứng do tiểu đường\n\nĐối tượng sử dụng\n• Người bị tiểu đường, đường huyết cao.\n• Người bị mỡ máu, cholesterol cao.\n• Người mất ngủ, kém ăn, thường hay mệt mỏi.\n\nCách dùng và Liều dùng\nUống trực tiếp 1 - 2 lọ mỗi ngày, Dùng uống trực tiếp. Lắc nhẹ sản phẩm trước khi sử dụng. Tốt nhất uống vào buổi sáng hoặc buổi tối trước khi đi ngủ.",
-      "view": 1,
+      "view": null,
       "id": "UPsnRSft8y"
     },
     {
@@ -133,14 +122,14 @@
     },
     {
       "name": "Khẩu Trang Y Tế N95",
-      "imager": "http://res.cloudinary.com/vodinh/image/upload/v1638173917/sh2kx03eg3kxn70reodx.jpg",
-      "price": 100000,
-      "discount": 15,
+      "imager": "http://res.cloudinary.com/vodinh/image/upload/v1638175313/mbaa3ccl7lgto7wjpzir.jpg",
+      "price": 1000,
+      "discount": 10,
       "category": 1,
-      "description_short": "xin chào các bạn",
-      "description": "<ol><li><strong>xin chào các bạn</strong></li><li><strong>xin chào các bạn</strong></li></ol>",
+      "description_short": "okasdasd",
+      "description": "<ol><li>adasdasdasd</li><li>adsd</li></ol>",
       "view": 1,
-      "id": "wEJOoWZ"
+      "id": "vA8O-jQ"
     }
   ],
   "categories": [

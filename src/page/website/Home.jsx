@@ -178,7 +178,8 @@ export default function Home({products,categories}) {
                             </Link>
                           </div>
                           <span className="product-sale">-{formatCash(data.discount)} %</span>
-                      </div>);
+                      </div>
+                      );
                   })
                 }
               </Carousel>
