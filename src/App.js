@@ -11,6 +11,7 @@ import {isAuthenticate} from "./authenticate";
 import CreateProduct from "./page/admin/CreateProduct";
 import CreateCate from "./page/admin/CreateCategory";
 import Category from "./page/website/Category";
+import Cart from "./page/website/Cart";
 import Dashboard from "./page/admin/Dashboard";
 import Home from './page/website/Home';
 import Error404 from "./page/website/Error404";
@@ -24,6 +25,7 @@ import PrivateAdmin from "./page/website/PrivateAdmin";
 import LayoutWebsite from './layout/LayoutWebsite';
 import Login from './page/website/Login';
 import LayoutAdmin from './layout/LayoutAdmin';
+import { getCartItems, setCartItems } from "./cart";
 
 
 function App() {
@@ -31,6 +33,7 @@ function App() {
   const [auth, setAuth] = useState(isAuthenticate);
   const [products,setProducts] = useState([]);
   const [categories,setCategories] = useState([]);
+  const [cart,setCart] = useState(getCartItems);
 
   const onChangeLogin = (auth) => {
     setAuth(auth);
@@ -77,14 +80,14 @@ function App() {
 return (
   <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LayoutWebsite auth={auth} setAuth={setAuth}/>}>
+        <Route path="/" element={<LayoutWebsite auth={auth} setAuth={setAuth} cart={cart}/>}>
           <Route index element={<Home products={products} categories={categories}/>} />
           <Route path="signup" element={<Signup setAuth={onChangeLogin}/>} />
           <Route path="login" element={<Login setAuth={onChangeLogin}/>} />
           <Route path="product" element={<div>sản phẩm</div>}/>
-          <Route path="product/:id" element={<ProductDetail />} />
+          <Route path="product/:id" element={<ProductDetail cart={cart} setCart={setCart} /> } />
           <Route path="loai-san-pham/:id" element={<Category />}categories={categories} />
-
+          <Route path="gio-hang" element={<Cart cart={cart}/>}/>
           <Route path="*" element={<Error404 />} />
         </Route>
         <Route path="admin/*" element={<PrivateAdmin ><LayoutAdmin auth={auth} setAuth={setAuth}/></PrivateAdmin>}>

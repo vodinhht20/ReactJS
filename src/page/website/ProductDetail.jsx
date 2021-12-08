@@ -5,9 +5,11 @@ import { faMinus } from '@fortawesome/free-solid-svg-icons';
 import { Link,useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { read,list,update } from "../../api/productAPI";
+import { getCartItems, setCartItems } from "../../cart";
+import { toast } from "react-toastify";
 
 
-export default function ProductDetail () {
+export default function ProductDetail ({setCart}) {
     var {id} = useParams();
     const [relatedProducts, setRelatedProducts] = useState([]);
     const [product, setProduct] = useState([]);
@@ -43,6 +45,28 @@ export default function ProductDetail () {
             return ((index % 3) ? next : (next + ',')) + prev
         })
     }
+    function addToCart(e) {
+        e.preventDefault();
+        const newProduct = {
+            ...product,
+            qty: quantity
+        };
+        let cartItems = getCartItems();
+        var existProduct = cartItems.find(
+          (product) => product.id === newProduct.id
+        );
+        if (existProduct) {
+          existProduct.qty += quantity;
+        } else {
+          cartItems = [...cartItems, newProduct];
+        }
+        setCartItems(cartItems);
+        // // Chay thong bao thanh cong
+        setCart(getCartItems());
+        toast.success("Bạn đã thêm thành công vào giỏ hàng !", {
+            autoClose: 3000,
+          });
+    }
     return (
         <Container>
             <main className="product-detail-page mt-5">
@@ -74,7 +98,7 @@ export default function ProductDetail () {
                                                 <div className="mt-1 text-danger error"></div>
                                                 <div className="bnt-order mt-3">
                                                     <button className="bnt-buy-now" >Mua Ngay</button>
-                                                    <button  className="bnt-add-cart" >Thêm Vào Giỏ Hàng</button>
+                                                    <button  className="bnt-add-cart" onClick={(e) => addToCart(e)}>Thêm Vào Giỏ Hàng</button>
                                                 </div>
                                             </div>
                                         </form>

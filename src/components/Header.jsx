@@ -3,7 +3,7 @@ import { Link,useNavigate} from "react-router-dom";
 
 
 import {ToastContainer} from "react-toastify"
-export default function Header({auth, setAuth}) {
+export default function Header({auth, setAuth, cart}) {
   let navigate = useNavigate();
   function logOut() {
     navigate("/login", { replace: true });
@@ -148,7 +148,7 @@ export default function Header({auth, setAuth}) {
               <div className="cart">
                 <i className="fas fa-cart-arrow-down"></i>
                 <span>Giỏ hàng</span>
-                <sub>0</sub>
+                <sub>{cart.length ? cart.length : 0}</sub>
               </div>
             </div>
             <div className="navbars_overlay"></div>

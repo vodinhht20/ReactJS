@@ -1,17 +1,6 @@
 {
   "products": [
     {
-      "name": "Máy đo huyết áp cổ tay Đức",
-      "imager": "https://bizweb.dktcdn.net/thumb/large/100/382/483/products/may-do-huyet-ap-co-tay-beurer-bc30-6b297beb-3565-4c5e-bfbe-1c34b167f35d.jpg?v=1585510030550",
-      "category": 4,
-      "price": 800000,
-      "discount": 10,
-      "description_short": "Kính gửi Quý khách hàng! Nhằm đảo bảo sức khỏe cho Quý khách và cộng đồng trong đại dịch Covid-19, Quý khách vui lòng không đến trực tiếp mua hàng. Chúng tôi sẽ Giao hàng và thu tiền tại nhà trên toàn quốc cho Quý khách. Với trên 13 năm kinh nghiệm bán hàng Online chúng tôi sẽ làm hài lòng Quý khách.",
-      "description": "Máy đo huyết áp cổ tay Beurer BC50 đem đến cho bạn kết quả nhanh chóng, chính xác\nMáy đo huyết áp cổ tay Beurer BC30 được ứng dụng công nghệ cảm biến Fuzzy logic, giúp đo huyết áp một cách nhanh chóng, chính xác. Dễ dàng sử dụng chỉ với 1 nút bấm cùng nhiều tính năng hiện đại khác.",
-      "view": null,
-      "id": "KtghlabsL"
-    },
-    {
       "name": "Băng cá nhân màu da Pharmacity (100 cái/hộp)",
       "imager": "https://data-service.pharmacity.io/pmc-upload-media/productionvn/pmc-ecm-core/products/P10341_1_l.webp",
       "category": 1,
@@ -41,7 +30,7 @@
       "discount": 10,
       "description_short": "Thực phẩm bảo vệ sức khỏe hỗ trợ tạo máu Anmi Feron 3+ hỗ trợ bổ sung sắt, acid folic cho cơ thể, hỗ trợ quá trình tạo máu, giúp hạn chế biểu hiện và giảm nguy cơ thiếu máu do thiếu sắt, có thể dùng cho trẻ từ 6 tháng tuổi trở lên và người lớn.\n\n",
       "description": "Thực phẩm bảo vệ sức khỏe hỗ trợ tạo máu Anmi Feron 3+ hỗ trợ bổ sung sắt, acid folic cho cơ thể, hỗ trợ quá trình tạo máu, giúp hạn chế biểu hiện và giảm nguy cơ thiếu máu do thiếu sắt, có thể dùng cho trẻ từ 6 tháng tuổi trở lên và người lớn.\n",
-      "view": 1,
+      "view": null,
       "id": "Kt2gshlbL"
     },
     {
@@ -74,7 +63,7 @@
       "discount": 10,
       "description_short": "Khẩu trang 4D Pharmacity được làm từ chất liệu vải tự nhiên, siêu mềm mịn. Sản phẩm có thiết kế 4D thông minh, vừa vặn với khuôn mặt. Đặc biệt, khẩu trang 4D Pharmacity có tác dụng làm mát, thiết kế đa chiều, không lem son môi cho nữ giới khi sử dụng.",
       "description": "Thành phần\nVải không dệt 100% PP, vải tai thun và vải lọc cao cấp.\nThanh nẹp đôi giúp định hình tốt khi đeo.\nVải SMS cao cấp với cấu tạo 4 lớp xếp chồng nhau.\n\nHướng dẫn sử dụng\nĐặt khẩu trang lên sống mũi và dùng tay chỉnh khẩu trang ôm khít khuôn mặt.\nĐeo dây đeo vào sau tai.\nĐiều chỉnh để che kín mũi, miệng và cằm.",
-      "view": 1,
+      "view": null,
       "id": "Ktg5hlabsL"
     },
     {
@@ -118,7 +107,8 @@
       "category": 4,
       "description_short": "bột ngũ cốc Nutri Blend được sản xuất từ nguyên liệu xuất xứ Thái Lan như gạo lứt, bắp, đậu nành, tảo Spirulina",
       "description": "<p><strong>Đối tượng sử dụng:</strong>&nbsp;Người lớn và trẻ em 2 tuổi trở lên</p><p><strong>Thành phần:</strong><br>Gạo lứt, Bắp, Đậu nành, Tảo Spirulina</p><p><strong>Công dụng:</strong><br>Giúp bồi bổ sức khỏe<br>Tiêu hóa tốt<br>Nâng cao sức đề kháng<br>Hỗ trợ miễn dịch</p>",
-      "id": "jle_iNM"
+      "id": "jle_iNM",
+      "view": null
     },
     {
       "name": "Khẩu Trang Y Tế N95",
@@ -130,8 +120,21 @@
       "description": "<ol><li>adasdasdasd</li><li>adsd</li></ol>",
       "view": 1,
       "id": "vA8O-jQ"
+    },
+    {
+      "name": "Khẩu Trang Y Tế N95 newn new",
+      "imager": "http://res.cloudinary.com/vodinh/image/upload/v1638519485/w0x1cmkinna42bdh8whu.jpg",
+      "price": 100000,
+      "discount": 9,
+      "category": 1,
+      "description_short": "Sản phẩm đẹp 4 mùa",
+      "description": "<p>Sản phẩm đẹp 4 mùa</p>",
+      "view": 1,
+      "id": "q2Q9tuQ"
     }
   ],
+  "cart": [],
+  "order": [],
   "categories": [
     {
       "id": 1,
